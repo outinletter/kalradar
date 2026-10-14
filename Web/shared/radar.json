@@ -1,0 +1,153 @@
+{
+  "version": "1.4",
+  "build": 5,
+  "refreshInterval": 30,
+  "filterPattern": "^KAL[0-9]+[A-Z]?$",
+  "appName": "KALRadar",
+  "subtitle": "KAL 호출부호 관측 · 비공식",
+  "disclaimer": "대한항공과 제휴하거나 승인을 받은 공식 앱이 아닙니다. 호출부호 기반 추정이며 항공 안전·항법용이 아닙니다.",
+  "providers": [
+    {
+      "id": "sky",
+      "name": "OpenSky",
+      "url": "https://opensky-network.org/api/states/all",
+      "scope": "전 세계 · 수신망 관측 범위"
+    },
+    {
+      "id": "lol",
+      "name": "ADSB.lol",
+      "url": "https://api.adsb.lol/v2/lat/37.46/lon/126.44/dist/250",
+      "scope": "지역 대체 · 인천 중심 250해리"
+    },
+    {
+      "id": "fi",
+      "name": "adsb.fi",
+      "url": "https://opendata.adsb.fi/api/v3/lat/37.46/lon/126.44/dist/250",
+      "scope": "지역 대체 · 인천 중심 250해리"
+    }
+  ],
+  "demoFlights": [
+    {
+      "id": "demo-1",
+      "number": "KE9001",
+      "callsign": "KAL9001",
+      "latitude": 37.5,
+      "longitude": 126.3,
+      "heading": 285,
+      "altitude": 12000,
+      "speed": 285,
+      "aircraft": "B789",
+      "origin": "ICN",
+      "destination": "NRT",
+      "registration": "DEMO-1",
+      "source": "FICTIONAL DEMO"
+    },
+    {
+      "id": "demo-2",
+      "number": "KE9002",
+      "callsign": "KAL9002",
+      "latitude": 34.8,
+      "longitude": 131.2,
+      "heading": 80,
+      "altitude": 35000,
+      "speed": 470,
+      "aircraft": "B77W",
+      "origin": "ICN",
+      "destination": "HND",
+      "registration": "DEMO-2",
+      "source": "FICTIONAL DEMO"
+    },
+    {
+      "id": "demo-3",
+      "number": "KE9003",
+      "callsign": "KAL9003",
+      "latitude": 31.7,
+      "longitude": 123.4,
+      "heading": 225,
+      "altitude": 38000,
+      "speed": 462,
+      "aircraft": "A333",
+      "origin": "ICN",
+      "destination": "SIN",
+      "registration": "DEMO-3",
+      "source": "FICTIONAL DEMO"
+    },
+    {
+      "id": "demo-4",
+      "number": "KE9004",
+      "callsign": "KAL9004",
+      "latitude": 44.0,
+      "longitude": 144.0,
+      "heading": 42,
+      "altitude": 37000,
+      "speed": 490,
+      "aircraft": "B748",
+      "origin": "ICN",
+      "destination": "LAX",
+      "registration": "DEMO-4",
+      "source": "FICTIONAL DEMO"
+    },
+    {
+      "id": "demo-5",
+      "number": "KE9005",
+      "callsign": "KAL9005",
+      "latitude": 48.2,
+      "longitude": 97.8,
+      "heading": 292,
+      "altitude": 39000,
+      "speed": 480,
+      "aircraft": "B789",
+      "origin": "ICN",
+      "destination": "CDG",
+      "registration": "DEMO-5",
+      "source": "FICTIONAL DEMO"
+    },
+    {
+      "id": "demo-6",
+      "number": "KE9006",
+      "callsign": "KAL9006",
+      "latitude": 22.3,
+      "longitude": 119.6,
+      "heading": 24,
+      "altitude": 36000,
+      "speed": 455,
+      "aircraft": "A359",
+      "origin": "BKK",
+      "destination": "ICN",
+      "registration": "DEMO-6",
+      "source": "FICTIONAL DEMO"
+    },
+    {
+      "id": "demo-7",
+      "number": "KE9007",
+      "callsign": "KAL9007",
+      "latitude": 35.4,
+      "longitude": 127.8,
+      "heading": 340,
+      "altitude": 18000,
+      "speed": 320,
+      "aircraft": "B738",
+      "origin": "CJU",
+      "destination": "GMP",
+      "registration": "DEMO-7",
+      "source": "FICTIONAL DEMO"
+    },
+    {
+      "id": "demo-8",
+      "number": "KE9008",
+      "callsign": "KAL9008",
+      "latitude": 40.8,
+      "longitude": 154.8,
+      "heading": 267,
+      "altitude": 40000,
+      "speed": 510,
+      "aircraft": "B77W",
+      "origin": "JFK",
+      "destination": "ICN",
+      "registration": "DEMO-8",
+      "source": "FICTIONAL DEMO"
+    }
+  ],
+  "routeBaseURL": "https://api.adsbdb.com/v0/callsign/",
+  "staleAfterSeconds": 120
+}

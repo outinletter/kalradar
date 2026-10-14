@@ -1,0 +1,12 @@
+.DS_Store
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+.env
+*.xcarchive
+
+Web/dist/
+Web/node_modules/
+build-synchronized/
+._*
