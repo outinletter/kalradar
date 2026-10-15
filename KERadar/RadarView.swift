@@ -41,7 +41,7 @@ struct RadarView: View {
                         }
                     }.padding(14)
                 }
-                .frame(height: max(230, min(geo.size.height * 0.43, 420)))
+                .frame(height: max(0, geo.size.width - 24) * 3 / 4)
                 .clipShape(RoundedRectangle(cornerRadius: 22)).padding(.horizontal, 12)
                 ScrollView {
                     VStack(alignment: .leading, spacing: 16) {
