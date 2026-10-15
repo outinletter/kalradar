@@ -3,7 +3,7 @@ import Foundation
 enum SharedRadar {
     static let routeBaseURL = "https://api.adsbdb.com/v0/callsign/"
     static let staleAfterSeconds: TimeInterval = 120
-    static let appName = "KALRadar"
+    static let appName = "KAL Radar"
     static let version = "1.4"
     static let subtitle = "KAL 호출부호 관측 · 비공식"
     static let disclaimer = "대한항공과 제휴하거나 승인을 받은 공식 앱이 아닙니다. 호출부호 기반 추정이며 항공 안전·항법용이 아닙니다."

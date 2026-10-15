@@ -1,9 +1,9 @@
 {
   "version": "1.4",
-  "build": 5,
+  "build": 6,
   "refreshInterval": 30,
   "filterPattern": "^KAL[0-9]+[A-Z]?$",
-  "appName": "KALRadar",
+  "appName": "KAL Radar",
   "subtitle": "KAL 호출부호 관측 · 비공식",
   "disclaimer": "대한항공과 제휴하거나 승인을 받은 공식 앱이 아닙니다. 호출부호 기반 추정이며 항공 안전·항법용이 아닙니다.",
   "providers": [

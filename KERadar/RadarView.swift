@@ -25,6 +25,7 @@ struct RadarView: View {
                     }.padding(.horizontal, 18).padding(.bottom, 12)
                 }
                 if let notice = store.providerNotice { Text(notice).font(.caption2).foregroundStyle(.orange).padding(8) }
+                if store.showingSaved { Text("저장 항적 · 실시간 아님 · \(store.savedAt?.formatted() ?? "저장 시각 미상")").font(.caption).foregroundStyle(.orange).padding(8) }
                 if let error = store.error {
                     Label(error + (store.flights.isEmpty ? "" : " 이전 응답을 표시합니다."), systemImage: "exclamationmark.triangle.fill")
                         .font(.caption).foregroundStyle(.orange).padding(12).frame(maxWidth: .infinity, alignment: .leading).background(.orange.opacity(0.10))
@@ -45,13 +46,14 @@ struct RadarView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 16) {
                         HStack {
-                            VStack(alignment: .leading, spacing: 3) {
-                                Text("운항 레이더").font(.headline)
-                                Text("편명, 공항 또는 기체로 검색").font(.caption).foregroundStyle(Theme.muted)
-                            }
-                            Spacer()
+                            TextField("편명 검색 · KE123 / KAL123", text: $store.search)
+                                .textInputAutocapitalization(.characters).autocorrectionDisabled()
+                                .padding(10).background(Theme.panel, in: RoundedRectangle(cornerRadius: 10))
+                                .onSubmit { showingList = true }
+                                .accessibilityLabel("편명 검색")
                             Button { showingList = true } label: { Text("전체 목록").font(.caption.weight(.semibold)); Image(systemName: "arrow.up.right").font(.caption) }.accessibilityLabel("전체 항공편 목록")
                         }
+                        if !store.search.isEmpty { ForEach(store.filteredFlights.prefix(8)) { flight in Button("\(flight.label) · \(flight.route)") { store.selectedID = flight.id }.font(.caption) } }
                         if let flight = store.selected {
                             FlightDetailCard(flight: flight, demo: store.mode == .demo)
                         } else {
@@ -189,6 +191,12 @@ struct SettingsView: View {
                 Section("앱 안내") {
                     Text(SharedRadar.disclaimer)
                     NavigationLink("개인정보 처리방침") { PrivacyView() }
+                    Link("웹 개인정보 처리방침", destination: URL(string: "https://keradar-parallel.gentlevale3.chatgpt.site/privacy")!)
+                    Link("지원 및 문의", destination: URL(string: "https://github.com/outinletter/kalradar/issues")!)
+                }
+                Section("기기 저장 항적") {
+                    Text("최근 조회에 성공한 항공기 위치와 확인한 경로를 기기에 보관합니다. 저장 위치는 과거 관측 정보이며 지도 배경은 오프라인에서 표시되지 않을 수 있습니다.")
+                    Button("저장 항적 삭제", role: .destructive) { store.clearSavedFlights() }
                 }
                 Section("데이터 모드") {
                     Picker("모드", selection: Binding(get: { store.mode }, set: { store.setMode($0) })) {
@@ -228,7 +236,7 @@ struct PrivacyView: View {
                 Text("이 앱은 회원가입, 광고, 분석 SDK, 사용자 추적을 사용하지 않으며 사용자의 기기 위치, 연락처, 사진을 요청하지 않습니다. 앱 실행 및 복귀 시 항공 정보를 자동 조회합니다.")
                 Text("자동 또는 수동 조회 시 OpenSky, ADSB.lol 또는 adsb.fi에 HTTPS 요청을 보냅니다. 선택한 항공편의 호출부호는 출도착 확인을 위해 ADSBDB에 전송됩니다. 이 제공자는 연결에 필요한 IP 주소와 요청 정보(앱 식별 헤더 및 고정 조회 범위)를 받을 수 있습니다. 항공편 검색어는 기기 안에서만 처리합니다.")
                 Text("지도는 Apple MapKit을 이용합니다. 지도 표시를 위해 Apple 서비스에 네트워크 요청이 전달될 수 있습니다. 사용자의 현재 위치는 전송하지 않습니다.")
-                Text("항공기 응답, 검색어와 조회 시각은 앱 메모리에만 유지됩니다. 앱이 종료되면 사라집니다. 앱은 자체 서버에 사용자 정보를 저장하거나 판매하지 않습니다. 제공자의 서버 기록 보관은 각 제공자의 정책을 따릅니다.")
+                Text("최근 항공기 위치, 확인한 경로와 저장 시각은 오프라인 열람을 위해 기기에 보관하며 다음 성공 조회로 갱신됩니다. 설정의 저장 항적 삭제로 제거할 수 있습니다. 검색어는 메모리에서만 처리합니다. 앱은 자체 서버에 사용자 정보를 저장하거나 판매하지 않습니다. 제공자의 서버 기록은 각 정책을 따릅니다.")
                 Link("Apple 개인정보 처리방침", destination: URL(string: "https://www.apple.com/legal/privacy/")!)
                 Link("OpenSky", destination: URL(string: "https://opensky-network.org")!)
                 Link("ADSB.lol", destination: URL(string: "https://www.adsb.lol")!)

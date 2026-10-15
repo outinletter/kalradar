@@ -1,7 +1,7 @@
 import Foundation
 import CoreLocation
 
-struct Flight: Decodable, Identifiable, Equatable, Sendable {
+struct Flight: Codable, Identifiable, Equatable, Sendable {
     let id: String
     var callsign: String?
     var number: String?
