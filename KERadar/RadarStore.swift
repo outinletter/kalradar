@@ -37,6 +37,7 @@ import SwiftUI
         let numeric = normalized.replacingOccurrences(of: "KAL", with: "")
         return flights.filter { flight in
             flight.searchableText.localizedCaseInsensitiveContains(normalized)
+                || (Flight.displayCallsign(flight.callsign) ?? "").localizedCaseInsensitiveContains(normalized)
                 || (numeric.allSatisfy { $0.isNumber } && !numeric.isEmpty && (flight.callsign ?? "").contains(numeric))
         }
     }
