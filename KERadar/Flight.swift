@@ -20,7 +20,17 @@ struct Flight: Codable, Identifiable, Equatable, Sendable {
     var source: String?
 
     var coordinate: CLLocationCoordinate2D { .init(latitude: latitude, longitude: longitude) }
-    var label: String { number?.nonEmpty ?? callsign?.nonEmpty ?? id }
+    var label: String { Self.displayCallsign(callsign) ?? number?.nonEmpty ?? id }
+    static func displayCallsign(_ raw: String?) -> String? {
+        guard let value = raw?.trimmingCharacters(in: .whitespacesAndNewlines).uppercased(),
+              let match = value.range(of: "^KAL([0-9]+)([A-Z]?)$", options: .regularExpression) else { return raw?.nonEmpty }
+        let suffix = String(value[match]).dropFirst(3)
+        let digits = suffix.prefix { $0.isNumber }
+        let tail = suffix.dropFirst(digits.count)
+        guard let number = Int(digits) else { return value }
+        let width = max(3, digits.count)
+        return "KAL\(String(number).leftPadded(to: width))\(tail)"
+    }
     var route: String { "\(origin?.nonEmpty ?? "출발 미상") → \(destination?.nonEmpty ?? "도착 미상")" }
     var observedUTC: String {
         guard let timestamp else { return "관측 시각 미상" }
@@ -79,6 +89,7 @@ extension KeyedDecodingContainer where Key == Flight.CodingKeys {
 }
 extension String {
     var nonEmpty: String? { let result = trimmingCharacters(in: .whitespacesAndNewlines); return result.isEmpty ? nil : result }
+    func leftPadded(to width: Int) -> String { String(repeating: "0", count: max(0, width - count)) + self }
 }
 
 /// Explicit operating_as always wins. Flight number KE / painted_as KAL are NOT operator evidence.

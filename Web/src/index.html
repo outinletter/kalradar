@@ -7,7 +7,7 @@ let mode='live',flights=(()=>{try{return JSON.parse(localStorage.getItem('kalrad
 const map=L.map('map',{zoomControl:false}).setView([35.8,129.5],4);L.control.zoom({position:'bottomleft'}).addTo(map);L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);let markers=L.layerGroup().addTo(map);
 $('subtitle').textContent=CONFIG.subtitle;$('disclaimer').textContent=CONFIG.disclaimer;$('version').textContent='v'+CONFIG.version;
 function notice(text){$('notice').textContent=text;$('notice').classList.toggle('visible',!!text)}
-function label(f){return f.number||f.callsign.trim()||f.id}function node(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e}
+function label(f){const raw=(f.callsign||'').trim().toUpperCase(),m=raw.match(/^KAL(\d+)([A-Z]?)$/);return m?'KAL'+m[1].padStart(Math.max(3,m[1].length),'0')+m[2]:(f.number||raw||f.id)}function node(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e}
 async function select(id,pan=true){selected=id;if(pan){const f=flights.find(f=>f.id===id);if(f)map.setView([f.latitude,f.longitude],6)}render();await loadRoute(id)}
 async function apiJSON(response){
  const type=response.headers.get('content-type')||'';

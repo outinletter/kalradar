@@ -31,7 +31,15 @@ import SwiftUI
         if showingSaved { flights = []; selectedID = nil; showingSaved = false }
     }
     var selected: Flight? { flights.first { $0.id == selectedID } }
-    var filteredFlights: [Flight] { guard let query = search.nonEmpty else { return flights }; return flights.filter { $0.searchableText.localizedCaseInsensitiveContains(query) } }
+    var filteredFlights: [Flight] {
+        guard let query = search.nonEmpty else { return flights }
+        let normalized = query.uppercased()
+        let numeric = normalized.replacingOccurrences(of: "KAL", with: "")
+        return flights.filter { flight in
+            flight.searchableText.localizedCaseInsensitiveContains(normalized)
+                || (numeric.allSatisfy { $0.isNumber } && !numeric.isEmpty && (flight.callsign ?? "").contains(numeric))
+        }
+    }
     func refreshIfNeeded() {
         guard mode == .live, !isLoading else { return }
         if let lastUpdated, Date().timeIntervalSince(lastUpdated) < SharedRadar.refreshInterval { return }
