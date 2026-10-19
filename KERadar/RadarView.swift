@@ -46,15 +46,21 @@ struct RadarView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 16) {
                         HStack {
-                            TextField("편명 검색 · KE123 / KAL123", text: $store.search)
+                            HStack(spacing: 8) {
+                                Image(systemName: "magnifyingglass").foregroundStyle(Theme.muted).accessibilityHidden(true)
+                                TextField("편명 검색 · 081 / KAL081", text: $store.search)
                                 .textInputAutocapitalization(.characters).autocorrectionDisabled()
-                                .padding(10).background(Theme.panel, in: RoundedRectangle(cornerRadius: 10))
-                                .onSubmit { showingList = true }
+                                .submitLabel(.search)
                                 .accessibilityLabel("편명 검색")
+                                if !store.search.isEmpty {
+                                    Button { store.search = "" } label: { Image(systemName: "xmark.circle.fill").foregroundStyle(Theme.muted) }.accessibilityLabel("검색어 지우기")
+                                }
+                            }.padding(10).background(Theme.panel, in: RoundedRectangle(cornerRadius: 10))
                             Button { showingList = true } label: { Text("전체 목록").font(.caption.weight(.semibold)); Image(systemName: "arrow.up.right").font(.caption) }.accessibilityLabel("전체 항공편 목록")
                         }
-                        if !store.search.isEmpty { ForEach(store.filteredFlights.prefix(8)) { flight in Button("\(flight.label) · \(flight.route)") { store.selectedID = flight.id }.font(.caption) } }
-                        if let flight = store.selected {
+                        if !store.search.isEmpty && store.filteredFlights.isEmpty {
+                            ContentUnavailableView.search(text: store.search)
+                        } else if let flight = store.selected {
                             FlightDetailCard(flight: flight, demo: store.mode == .demo)
                         } else {
                             VStack(spacing: 9) {
@@ -70,6 +76,12 @@ struct RadarView: View {
             }.background(Theme.navy)
         }
         .task(id: store.selectedID) { await store.loadSelectedRoute() }
+        .onChange(of: store.search) { _, _ in
+            if !store.filteredFlights.contains(where: { $0.id == store.selectedID }) {
+                store.selectedID = store.filteredFlights.first?.id
+            }
+            withAnimation { camera = .automatic }
+        }
         .sheet(isPresented: $showingSettings) { SettingsView().environmentObject(store) }
         .sheet(isPresented: $showingList) { FlightListView { flight in store.selectedID = flight.id; withAnimation { camera = .region(.init(center: flight.coordinate, span: .init(latitudeDelta: 7, longitudeDelta: 9))) }; showingList = false }.environmentObject(store) }
     }
@@ -94,7 +106,7 @@ struct RadarView: View {
     }
     private var radarMap: some View {
         Map(position: $camera, selection: $store.selectedID) {
-            ForEach(store.flights) { flight in
+            ForEach(store.filteredFlights) { flight in
                 Annotation(flight.label, coordinate: flight.coordinate, anchor: .center) {
                     Button { store.selectedID = flight.id } label: {
                         VStack(spacing: 4) {

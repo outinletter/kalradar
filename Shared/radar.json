@@ -1,6 +1,6 @@
 {
   "version": "1.4",
-  "build": 6,
+  "build": 7,
   "refreshInterval": 30,
   "filterPattern": "^KAL[0-9]+[A-Z]?$",
   "appName": "KAL Radar",
