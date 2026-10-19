@@ -16,6 +16,7 @@ import SwiftUI
     @Published var settingsNotice: String?
     private var refreshTask: Task<Void, Never>?
     private var generation = 0
+    @Published private(set) var isPreloadingRoutes = false
     private let offlineKey = "kalradar.lastFlights"
     @Published private(set) var showingSaved = false
     @Published private(set) var savedAt: Date?
@@ -63,6 +64,25 @@ import SwiftUI
         flights[index].origin = route.origin; flights[index].destination = route.destination
         flights[index].number = route.number
         saveFlights()
+    }
+    func preloadRoutes() async {
+        guard mode == .live, !isPreloadingRoutes else { return }
+        isPreloadingRoutes = true
+        defer { isPreloadingRoutes = false; saveFlights() }
+        let current = generation
+        let pending = flights.filter { $0.origin?.nonEmpty == nil || $0.destination?.nonEmpty == nil }
+        for flight in pending {
+            guard !Task.isCancelled, mode == .live, current == generation else { return }
+            guard let callsign = flight.callsign?.nonEmpty else { continue }
+            let route = await RouteClient.shared.route(callsign: callsign)
+            guard !Task.isCancelled, mode == .live, current == generation else { return }
+            if let route, let index = flights.firstIndex(where: { $0.id == flight.id && $0.callsign == flight.callsign }) {
+                flights[index].origin = route.origin ?? flights[index].origin
+                flights[index].destination = route.destination ?? flights[index].destination
+                flights[index].number = route.number ?? flights[index].number
+            }
+            do { try await Task.sleep(for: .milliseconds(250)) } catch { return }
+        }
     }
     func refresh() {
         guard !isLoading else { return }

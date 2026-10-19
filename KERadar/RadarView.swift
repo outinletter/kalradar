@@ -110,11 +110,11 @@ struct RadarView: View {
                 Annotation(flight.label, coordinate: flight.coordinate, anchor: .center) {
                     Button { store.selectedID = flight.id } label: {
                         VStack(spacing: 4) {
-                            Image(systemName: "airplane").font(.system(size: store.selectedID == flight.id ? 27 : 21, weight: .bold))
+                            Image(systemName: "airplane").font(.system(size: store.selectedID == flight.id ? 25 : 19, weight: .semibold))
                                 .rotationEffect(.degrees((flight.heading ?? 0) - 90))
-                                .foregroundStyle(store.selectedID == flight.id ? Theme.navy : Theme.mint)
-                                .frame(width: 44, height: 44).background(store.selectedID == flight.id ? Theme.mint : Theme.navy.opacity(0.85), in: Circle())
-                                .overlay(Circle().stroke(Theme.mint.opacity(0.6), lineWidth: 1)).shadow(color: Theme.mint.opacity(0.25), radius: 8)
+                                .foregroundStyle(store.selectedID == flight.id ? Color.orange : Theme.mint)
+                                .shadow(color: .white, radius: 2)
+                                .frame(width: 44, height: 44).contentShape(Rectangle())
                             Text("\(flight.label) · \(flight.route)").font(.system(size: 9, weight: .bold, design: .monospaced)).foregroundStyle(.primary).padding(.horizontal, 5).padding(.vertical, 3).background(Theme.navy.opacity(0.9), in: Capsule())
                         }
                     }.buttonStyle(.plain).accessibilityLabel("\(flight.label), \(flight.route)")
@@ -171,6 +171,9 @@ struct FlightListView: View {
     var body: some View {
         NavigationStack {
             List {
+                if store.isPreloadingRoutes {
+                    Label("출도착 정보 미리 불러오는 중…", systemImage: "arrow.down.circle").font(.caption).foregroundStyle(Theme.muted)
+                }
                 Section { Text(store.mode == .demo ? "데모 · 모든 편명과 위치는 가상입니다" : "KAL 호출부호 추정 · 마지막 수동 조회 결과").font(.caption).foregroundStyle(store.mode == .demo ? .orange : Theme.mint) }
                 Section("\(store.filteredFlights.count)개 항공편") {
                     ForEach(store.filteredFlights) { flight in
@@ -189,6 +192,7 @@ struct FlightListView: View {
             }.scrollContentBackground(.hidden).background(Theme.navy).navigationTitle("운항편 목록")
                 .searchable(text: $store.search, prompt: "호출부호, 등록번호, 기종 검색")
                 .toolbar { ToolbarItem(placement: .topBarTrailing) { Button("닫기") { dismiss() } } }
+                .task { await store.preloadRoutes() }
         }
     }
     @Environment(\.dismiss) private var dismiss
