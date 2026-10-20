@@ -2,12 +2,12 @@ import SwiftUI
 import MapKit
 
  enum Theme {
-    static let navy = Color(red: 0.025, green: 0.065, blue: 0.19)
-    static let panel = Color(red: 0.035, green: 0.16, blue: 0.43)
-    static let mint = Color(red: 0.58, green: 0.85, blue: 0.98)
-    static let muted = Color(red: 0.70, green: 0.80, blue: 0.94)
-    static let boardBlue = Color(red: 0.025, green: 0.25, blue: 0.91)
-    static let selectedBlue = Color(red: 0.10, green: 0.33, blue: 0.77)
+    static let navy = Color(red: 0.95, green: 0.97, blue: 0.98)
+    static let panel = Color.white
+    static let mint = Color(red: 0.0, green: 0.40, blue: 0.34)
+    static let muted = Color(red: 0.34, green: 0.41, blue: 0.48)
+    static let boardBlue = Color(red: 0.14, green: 0.31, blue: 0.53)
+    static let selectedBlue = Color(red: 0.85, green: 0.93, blue: 0.97)
  }
 
 struct RadarView: View {
@@ -20,6 +20,10 @@ struct RadarView: View {
             let landscape = geo.size.width > geo.size.height
             VStack(spacing: 8) {
                 toolbar
+                if store.showingSaved || store.mode == .demo {
+                    Text(store.mode == .demo ? "가상 데모 · 실제 운항 아님" : "저장 항적 · 실시간 아님")
+                        .font(.caption2).foregroundStyle(Theme.muted)
+                }
                 if let error = store.error {
                     Label(error, systemImage: "exclamationmark.triangle").font(.caption2).foregroundStyle(.orange)
                         .lineLimit(2).frame(maxWidth: .infinity, alignment: .leading)
@@ -41,7 +45,6 @@ struct RadarView: View {
                         }
                     }.scrollDismissesKeyboard(.interactively)
                 }
-                statusBar
             }.padding(.horizontal, 10).padding(.vertical, 6).background(Theme.navy)
         }
         .ignoresSafeArea(.keyboard, edges: .bottom)
@@ -148,20 +151,6 @@ struct RadarView: View {
             }.font(.caption2).lineLimit(1).minimumScaleFactor(0.8)
         }.padding(10).frame(maxWidth: .infinity, alignment: .leading).background(.regularMaterial, in: RoundedRectangle(cornerRadius: 12))
     }
-    private var statusBar: some View {
-        HStack(spacing: 6) {
-            Text(store.mode == .demo ? "가상 데모" : store.showingSaved ? "저장 항적 · 실시간 아님" : store.providerName)
-                .fontWeight(.semibold)
-            if store.isLoading {
-                Text("조회 중…")
-            } else if let updated = store.lastUpdated {
-                Text(updated.formatted(date: .omitted, time: .shortened))
-            }
-            Spacer(minLength: 0)
-            Text("비공식 · 항법용 아님")
-        }.font(.system(size: 9)).foregroundStyle(Theme.muted).lineLimit(1)
-            .padding(.vertical, 1).accessibilityElement(children: .combine)
-    }
     private func select(_ flight: Flight) {
         store.selectedID = flight.id
         withAnimation { camera = .region(.init(center: flight.coordinate, span: .init(latitudeDelta: 6, longitudeDelta: 8))) }
@@ -182,7 +171,7 @@ struct RadarView: View {
                     }.buttonStyle(.plain).accessibilityLabel("\(flight.label), \(flight.route)")
                 }.tag(flight.id)
             }
-        }.mapStyle(.imagery(elevation: .flat))
+        }.mapStyle(.standard(elevation: .flat, emphasis: .muted, pointsOfInterest: .excludingAll, showsTraffic: false))
             .mapControlVisibility(.hidden)
     }
 }
