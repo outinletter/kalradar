@@ -37,15 +37,12 @@ struct RadarView: View {
                         mapPanel(showDetail: true)
                     }
                 } else {
-                    ScrollView {
-                        VStack(spacing: 10) {
-                            mapPanel(showDetail: false).frame(height: max(0, geo.size.width - 20) * 3 / 4)
-                            if let flight = store.selected { compactDetail(flight) }
-                            if !store.search.isEmpty && store.filteredFlights.isEmpty {
-                                Text("검색 결과가 없습니다").font(.caption).foregroundStyle(Theme.muted).padding(.vertical, 12)
-                            }
-                        }
-                    }.scrollDismissesKeyboard(.interactively)
+                    VStack(spacing: 10) {
+                        mapPanel(showDetail: false)
+                            .frame(height: min(max(0, geo.size.width - 20) * 3 / 4, geo.size.height * 0.43))
+                        if let flight = store.selected { compactDetail(flight) }
+                        flightBoard.frame(maxHeight: .infinity)
+                    }.frame(maxHeight: .infinity)
                 }
             }.padding(.horizontal, 10).padding(.vertical, 6).background(Theme.navy)
         }
@@ -77,11 +74,8 @@ struct RadarView: View {
                 if store.isLoading { ProgressView().frame(width: 44, height: 44) }
                 else { Image(systemName: "arrow.clockwise").frame(width: 44, height: 44) }
             }.disabled(store.isLoading).accessibilityLabel("새로고침")
-            Menu {
-                Button("전체 목록", systemImage: "list.bullet") { showingList = true }
-                Button("설정", systemImage: "slider.horizontal.3") { showingSettings = true }
-            } label: { Image(systemName: "line.3.horizontal").frame(width: 44, height: 44) }
-                .accessibilityLabel("전체 목록 및 설정")
+            Button { showingSettings = true } label: { Image(systemName: "slider.horizontal.3").frame(width: 44, height: 44) }
+                .accessibilityLabel("설정")
         }
     }
     private var flightBoard: some View {
