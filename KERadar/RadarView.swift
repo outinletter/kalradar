@@ -2,10 +2,12 @@ import SwiftUI
 import MapKit
 
  enum Theme {
-    static let navy = Color(red: 0.95, green: 0.97, blue: 0.98)
-    static let panel = Color.white
-    static let mint = Color(red: 0.0, green: 0.40, blue: 0.34)
-    static let muted = Color(red: 0.34, green: 0.41, blue: 0.48)
+    static let navy = Color(red: 0.025, green: 0.065, blue: 0.19)
+    static let panel = Color(red: 0.035, green: 0.16, blue: 0.43)
+    static let mint = Color(red: 0.58, green: 0.85, blue: 0.98)
+    static let muted = Color(red: 0.70, green: 0.80, blue: 0.94)
+    static let boardBlue = Color(red: 0.025, green: 0.25, blue: 0.91)
+    static let selectedBlue = Color(red: 0.10, green: 0.33, blue: 0.77)
  }
 
 struct RadarView: View {
@@ -21,6 +23,9 @@ struct RadarView: View {
                 if let error = store.error {
                     Label(error, systemImage: "exclamationmark.triangle").font(.caption2).foregroundStyle(.orange)
                         .lineLimit(2).frame(maxWidth: .infinity, alignment: .leading)
+                }
+                if let notice = store.providerNotice {
+                    Text(notice).font(.system(size: 10)).foregroundStyle(Theme.muted).lineLimit(1)
                 }
                 if landscape {
                     HStack(alignment: .top, spacing: 10) {
@@ -61,8 +66,12 @@ struct RadarView: View {
                     Button { store.search = "" } label: { Image(systemName: "xmark.circle.fill").foregroundStyle(Theme.muted) }
                         .accessibilityLabel("검색어 지우기")
                 }
-            }.font(.subheadline).padding(.horizontal, 10).frame(minWidth: 110, maxWidth: 250, minHeight: 44)
+            }.font(.subheadline).padding(.horizontal, 10).frame(minWidth: 90, maxWidth: 250, minHeight: 44)
                 .background(Theme.panel, in: RoundedRectangle(cornerRadius: 12))
+            Button { store.refresh() } label: {
+                if store.isLoading { ProgressView().frame(width: 44, height: 44) }
+                else { Image(systemName: "arrow.clockwise").frame(width: 44, height: 44) }
+            }.disabled(store.isLoading).accessibilityLabel("새로고침")
             Button { showingSettings = true } label: { Image(systemName: "slider.horizontal.3").frame(width: 44, height: 44) }
                 .accessibilityLabel("설정")
         }
@@ -78,7 +87,7 @@ struct RadarView: View {
                 Text("\(store.filteredFlights.count)").font(.title3.monospacedDigit().bold())
                 Button { showingList = true } label: { Image(systemName: "arrow.up.left.and.arrow.down.right").frame(width: 44, height: 44) }
                     .accessibilityLabel("전체 목록")
-            }.padding(.horizontal, 12).padding(.vertical, 4).foregroundStyle(.white).background(Color(red: 0.14, green: 0.31, blue: 0.53))
+            }.padding(.horizontal, 12).padding(.vertical, 4).foregroundStyle(.white).background(Theme.boardBlue)
             if store.isPreloadingRoutes { ProgressView().controlSize(.mini).frame(maxWidth: .infinity).padding(4).accessibilityLabel("출도착 정보 조회 중") }
             ScrollView {
                 LazyVStack(spacing: 0) {
@@ -94,7 +103,7 @@ struct RadarView: View {
                                 Spacer(minLength: 0)
                                 if store.selectedID == flight.id { Image(systemName: "location.fill").font(.caption2).foregroundStyle(Theme.mint) }
                             }.foregroundStyle(.primary).padding(.horizontal, 10).frame(minHeight: 48)
-                                .background(store.selectedID == flight.id ? Color(red: 0.85, green: 0.93, blue: 0.97) : Theme.panel)
+                                .background(store.selectedID == flight.id ? Theme.selectedBlue : Theme.panel)
                                 .contentShape(Rectangle())
                         }.buttonStyle(.plain).accessibilityLabel("\(flight.label), \(flight.route)")
                         Divider()
@@ -140,20 +149,18 @@ struct RadarView: View {
         }.padding(10).frame(maxWidth: .infinity, alignment: .leading).background(.regularMaterial, in: RoundedRectangle(cornerRadius: 12))
     }
     private var statusBar: some View {
-        HStack(spacing: 8) {
-            VStack(alignment: .leading, spacing: 2) {
-                Text(store.mode == .demo ? "가상 데모 · 실제 운항 아님" : store.showingSaved ? "저장 항적 · 실시간 아님" : store.providerName)
-                    .font(.caption2.weight(.semibold))
-                Text(store.providerNotice ?? (store.lastUpdated.map { "최근 조회 \($0.formatted(date: .omitted, time: .shortened))" } ?? "조회 전"))
-                    .font(.system(size: 10)).foregroundStyle(Theme.muted).lineLimit(1)
+        HStack(spacing: 6) {
+            Text(store.mode == .demo ? "가상 데모" : store.showingSaved ? "저장 항적 · 실시간 아님" : store.providerName)
+                .fontWeight(.semibold)
+            if store.isLoading {
+                Text("조회 중…")
+            } else if let updated = store.lastUpdated {
+                Text(updated.formatted(date: .omitted, time: .shortened))
             }
-            Spacer()
-            Text("비공식 · 항법용 아님").font(.system(size: 9)).foregroundStyle(Theme.muted)
-            Button { store.refresh() } label: {
-                if store.isLoading { ProgressView().frame(width: 44, height: 44) }
-                else { Image(systemName: "arrow.clockwise").frame(width: 44, height: 44) }
-            }.disabled(store.isLoading).accessibilityLabel("새로고침")
-        }
+            Spacer(minLength: 0)
+            Text("비공식 · 항법용 아님")
+        }.font(.system(size: 9)).foregroundStyle(Theme.muted).lineLimit(1)
+            .padding(.vertical, 1).accessibilityElement(children: .combine)
     }
     private func select(_ flight: Flight) {
         store.selectedID = flight.id
@@ -175,7 +182,7 @@ struct RadarView: View {
                     }.buttonStyle(.plain).accessibilityLabel("\(flight.label), \(flight.route)")
                 }.tag(flight.id)
             }
-        }.mapStyle(.standard(elevation: .flat, emphasis: .muted, pointsOfInterest: .excludingAll, showsTraffic: false))
+        }.mapStyle(.imagery(elevation: .flat))
             .mapControlVisibility(.hidden)
     }
 }
