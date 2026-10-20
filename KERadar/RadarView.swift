@@ -10,120 +10,174 @@ import MapKit
 
 struct RadarView: View {
     @EnvironmentObject private var store: RadarStore
-    @State private var camera: MapCameraPosition = .region(.init(center: .init(latitude: 35.8, longitude: 129.5), span: .init(latitudeDelta: 17, longitudeDelta: 22)))
+    @State private var camera: MapCameraPosition = .automatic
     @State private var showingSettings = false
     @State private var showingList = false
     var body: some View {
         GeometryReader { geo in
-            VStack(spacing: 0) {
-                header
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 8) {
-                        badge(store.mode == .demo ? "데모 · 가상 항공편" : "\(store.providerName) · 무료", icon: store.mode == .demo ? "sparkles" : "antenna.radiowaves.left.and.right", color: store.mode == .demo ? .orange : Theme.mint)
-                        badge("KAL 호출부호만", icon: "checkmark.shield", color: Theme.mint)
-                        badge("\(store.flights.count)대 표시", icon: "airplane", color: .primary)
-                    }.padding(.horizontal, 18).padding(.bottom, 12)
-                }
-                if let notice = store.providerNotice { Text(notice).font(.caption2).foregroundStyle(.orange).padding(8) }
-                if store.showingSaved { Text("저장 항적 · 실시간 아님 · \(store.savedAt?.formatted() ?? "저장 시각 미상")").font(.caption).foregroundStyle(.orange).padding(8) }
+            let landscape = geo.size.width > geo.size.height
+            VStack(spacing: 8) {
+                toolbar
                 if let error = store.error {
-                    Label(error + (store.flights.isEmpty ? "" : " 이전 응답을 표시합니다."), systemImage: "exclamationmark.triangle.fill")
-                        .font(.caption).foregroundStyle(.orange).padding(12).frame(maxWidth: .infinity, alignment: .leading).background(.orange.opacity(0.10))
+                    Label(error, systemImage: "exclamationmark.triangle").font(.caption2).foregroundStyle(.orange)
+                        .lineLimit(2).frame(maxWidth: .infinity, alignment: .leading)
                 }
-                ZStack(alignment: .topLeading) {
-                    radarMap
-                    VStack {
-                        Spacer()
-                        HStack {
-                            Spacer()
-                            Button { withAnimation { camera = .automatic } } label: { Image(systemName: "scope").font(.title3).frame(width: 44, height: 44).background(Theme.panel, in: Circle()) }
-                                .accessibilityLabel("전체 항공기 보기")
+                if landscape {
+                    HStack(alignment: .top, spacing: 10) {
+                        flightBoard.frame(width: min(300, max(210, geo.size.width * 0.32)))
+                        mapPanel(showDetail: true)
+                    }
+                } else {
+                    ScrollView {
+                        VStack(spacing: 10) {
+                            mapPanel(showDetail: false).frame(height: max(0, geo.size.width - 20) * 3 / 4)
+                            if let flight = store.selected { compactDetail(flight) }
+                            flightBoard.frame(height: max(210, geo.size.height * 0.35))
                         }
-                    }.padding(14)
+                    }.scrollDismissesKeyboard(.interactively)
                 }
-                .frame(height: max(0, geo.size.width - 24) * 3 / 4)
-                .clipShape(RoundedRectangle(cornerRadius: 22)).padding(.horizontal, 12)
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 16) {
-                        HStack {
-                            HStack(spacing: 8) {
-                                Image(systemName: "magnifyingglass").foregroundStyle(Theme.muted).accessibilityHidden(true)
-                                TextField("편명 검색 · 081 / KAL081", text: $store.search)
-                                .textInputAutocapitalization(.characters).autocorrectionDisabled()
-                                .submitLabel(.search)
-                                .accessibilityLabel("편명 검색")
-                                if !store.search.isEmpty {
-                                    Button { store.search = "" } label: { Image(systemName: "xmark.circle.fill").foregroundStyle(Theme.muted) }.accessibilityLabel("검색어 지우기")
-                                }
-                            }.padding(10).background(Theme.panel, in: RoundedRectangle(cornerRadius: 10))
-                            Button { showingList = true } label: { Text("전체 목록").font(.caption.weight(.semibold)); Image(systemName: "arrow.up.right").font(.caption) }.accessibilityLabel("전체 항공편 목록")
-                        }
-                        if !store.search.isEmpty && store.filteredFlights.isEmpty {
-                            ContentUnavailableView.search(text: store.search)
-                        } else if let flight = store.selected {
-                            FlightDetailCard(flight: flight, demo: store.mode == .demo)
-                        } else {
-                            VStack(spacing: 9) {
-                                Image(systemName: store.mode == .live ? "antenna.radiowaves.left.and.right" : "airplane").font(.title).foregroundStyle(Theme.mint)
-                                Text(store.mode == .live && store.lastUpdated == nil ? store.isLoading ? "운항 정보를 불러오는 중입니다" : "운항 정보를 불러오지 못했습니다" : "표시할 운항편이 없습니다").font(.headline)
-                                Text(store.mode == .live && store.lastUpdated == nil ? "연결 상태를 확인하고 새로고침으로 다시 조회할 수 있습니다." : "필터를 통과한 유효 위치의 항공편만 표시합니다.").font(.caption).foregroundStyle(Theme.muted).multilineTextAlignment(.center)
-                            }.padding(22).frame(maxWidth: .infinity).background(Theme.panel, in: RoundedRectangle(cornerRadius: 18))
-                        }
-                        if store.mode == .demo { Text("DEMO DATA · 실제 운항 상태가 아닙니다").font(.system(size: 9, weight: .semibold, design: .monospaced)).tracking(1.5).foregroundStyle(.orange) }
-                        else { Text("\(freshness) · \(store.providerName) · \(store.scopeName)").font(.caption2).foregroundStyle(Theme.muted) }
-                    }.padding(18)
-                }
-            }.background(Theme.navy)
+                statusBar
+            }.padding(.horizontal, 10).padding(.vertical, 6).background(Theme.navy)
         }
+        .ignoresSafeArea(.keyboard, edges: .bottom)
         .task(id: store.selectedID) { await store.loadSelectedRoute() }
+        .task(id: store.flights.map(\.id)) { await store.preloadRoutes() }
         .onChange(of: store.search) { _, _ in
-            if !store.filteredFlights.contains(where: { $0.id == store.selectedID }) {
-                store.selectedID = store.filteredFlights.first?.id
-            }
+            if !store.filteredFlights.contains(where: { $0.id == store.selectedID }) { store.selectedID = store.filteredFlights.first?.id }
             withAnimation { camera = .automatic }
         }
         .sheet(isPresented: $showingSettings) { SettingsView().environmentObject(store) }
-        .sheet(isPresented: $showingList) { FlightListView { flight in store.selectedID = flight.id; withAnimation { camera = .region(.init(center: flight.coordinate, span: .init(latitudeDelta: 7, longitudeDelta: 9))) }; showingList = false }.environmentObject(store) }
+        .sheet(isPresented: $showingList) { FlightListView { select($0); showingList = false }.environmentObject(store) }
     }
-    private var freshness: String {
-        guard let updated = store.lastUpdated else { return "조회 중" }
-        return "최근 조회 \(updated.formatted(date: .omitted, time: .standard))"
+    private var toolbar: some View {
+        HStack(spacing: 8) {
+            Text("KAL Radar").font(.system(size: 17, weight: .bold, design: .rounded)).lineLimit(1).minimumScaleFactor(0.8)
+            Spacer(minLength: 0)
+            HStack(spacing: 6) {
+                Image(systemName: "magnifyingglass").foregroundStyle(Theme.muted).accessibilityHidden(true)
+                TextField("편명 · 031", text: $store.search).textInputAutocapitalization(.characters)
+                    .autocorrectionDisabled().submitLabel(.search).accessibilityLabel("편명 검색")
+                if !store.search.isEmpty {
+                    Button { store.search = "" } label: { Image(systemName: "xmark.circle.fill").foregroundStyle(Theme.muted) }
+                        .accessibilityLabel("검색어 지우기")
+                }
+            }.font(.subheadline).padding(.horizontal, 10).frame(minWidth: 110, maxWidth: 250, minHeight: 44)
+                .background(Theme.panel, in: RoundedRectangle(cornerRadius: 12))
+            Button { showingSettings = true } label: { Image(systemName: "slider.horizontal.3").frame(width: 44, height: 44) }
+                .accessibilityLabel("설정")
+        }
     }
-    private var header: some View {
-        HStack(spacing: 10) {
-            Image(systemName: "airplane.circle.fill").font(.system(size: 30)).foregroundStyle(Theme.mint)
+    private var flightBoard: some View {
+        VStack(spacing: 0) {
+            HStack {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("운항편").font(.headline)
+                    Text(store.mode == .demo ? "가상 데모" : "KAL · 공개 관측").font(.caption2)
+                }
+                Spacer()
+                Text("\(store.filteredFlights.count)").font(.title3.monospacedDigit().bold())
+                Button { showingList = true } label: { Image(systemName: "arrow.up.left.and.arrow.down.right").frame(width: 44, height: 44) }
+                    .accessibilityLabel("전체 목록")
+            }.padding(.horizontal, 12).padding(.vertical, 4).foregroundStyle(.white).background(Color(red: 0.14, green: 0.31, blue: 0.53))
+            if store.isPreloadingRoutes { ProgressView().controlSize(.mini).frame(maxWidth: .infinity).padding(4).accessibilityLabel("출도착 정보 조회 중") }
+            ScrollView {
+                LazyVStack(spacing: 0) {
+                    ForEach(store.filteredFlights) { flight in
+                        Button { select(flight) } label: {
+                            HStack(spacing: 8) {
+                                Text(flight.label).font(.system(.caption, design: .monospaced).weight(.bold)).frame(width: 70, alignment: .leading)
+                                VStack(alignment: .leading, spacing: 3) {
+                                    Text(flight.route).font(.caption.weight(.medium)).lineLimit(1)
+                                    Text("\(flight.aircraft ?? "기종 미상") · \(flight.registration ?? "등록번호 미상")")
+                                        .font(.system(size: 10)).foregroundStyle(Theme.muted).lineLimit(1)
+                                }
+                                Spacer(minLength: 0)
+                                if store.selectedID == flight.id { Image(systemName: "location.fill").font(.caption2).foregroundStyle(Theme.mint) }
+                            }.foregroundStyle(.primary).padding(.horizontal, 10).frame(minHeight: 48)
+                                .background(store.selectedID == flight.id ? Color(red: 0.85, green: 0.93, blue: 0.97) : Theme.panel)
+                                .contentShape(Rectangle())
+                        }.buttonStyle(.plain).accessibilityLabel("\(flight.label), \(flight.route)")
+                        Divider()
+                    }
+                    if store.filteredFlights.isEmpty {
+                        Text(store.isLoading ? "운항 정보 조회 중…" : store.search.isEmpty ? "관측 항공편이 없습니다" : "검색 결과가 없습니다")
+                            .font(.caption).foregroundStyle(Theme.muted).padding(20)
+                    }
+                }
+            }.scrollDismissesKeyboard(.interactively)
+        }.background(Theme.panel).clipShape(RoundedRectangle(cornerRadius: 14))
+    }
+    private func mapPanel(showDetail: Bool) -> some View {
+        GeometryReader { _ in
+            ZStack(alignment: .bottom) {
+                radarMap
+                VStack {
+                    HStack {
+                        Spacer()
+                        Button { withAnimation { camera = .automatic } } label: {
+                            Image(systemName: "scope").frame(width: 44, height: 44).background(.regularMaterial, in: RoundedRectangle(cornerRadius: 12))
+                        }.accessibilityLabel("전체 항공기 보기")
+                    }
+                    Spacer()
+                    if showDetail, let flight = store.selected { compactDetail(flight) }
+                }.padding(8)
+            }.clipShape(RoundedRectangle(cornerRadius: 14))
+        }
+    }
+    private func compactDetail(_ flight: Flight) -> some View {
+        VStack(alignment: .leading, spacing: 5) {
+            HStack {
+                Text(flight.label).font(.subheadline.bold())
+                Text(flight.route).font(.caption).lineLimit(1)
+                Spacer(minLength: 0)
+                Text(flight.registration ?? "").font(.caption2).foregroundStyle(Theme.muted)
+            }
+            HStack(spacing: 14) {
+                Label("\(flight.altitude.map { String(Int($0)) } ?? "—") ft", systemImage: "arrow.up")
+                Label("\(flight.speed.map { String(Int($0)) } ?? "—") kt", systemImage: "speedometer")
+                Text(flight.observedUTC).foregroundStyle(Theme.muted)
+            }.font(.caption2).lineLimit(1).minimumScaleFactor(0.8)
+        }.padding(10).frame(maxWidth: .infinity, alignment: .leading).background(.regularMaterial, in: RoundedRectangle(cornerRadius: 12))
+    }
+    private var statusBar: some View {
+        HStack(spacing: 8) {
             VStack(alignment: .leading, spacing: 2) {
-                Text(SharedRadar.appName).font(.system(size: 23, weight: .bold, design: .rounded))
-                Text(SharedRadar.subtitle).font(.system(size: 10, weight: .medium)).foregroundStyle(Theme.muted)
+                Text(store.mode == .demo ? "가상 데모 · 실제 운항 아님" : store.showingSaved ? "저장 항적 · 실시간 아님" : store.providerName)
+                    .font(.caption2.weight(.semibold))
+                Text(store.providerNotice ?? (store.lastUpdated.map { "최근 조회 \($0.formatted(date: .omitted, time: .shortened))" } ?? "조회 전"))
+                    .font(.system(size: 10)).foregroundStyle(Theme.muted).lineLimit(1)
             }
             Spacer()
+            Text("비공식 · 항법용 아님").font(.system(size: 9)).foregroundStyle(Theme.muted)
             Button { store.refresh() } label: {
-                if store.isLoading { ProgressView().frame(width: 40, height: 40) }
-                else { Image(systemName: "arrow.clockwise").font(.system(size: 18, weight: .semibold)).frame(width: 40, height: 40) }
-            }.disabled(store.isLoading).accessibilityLabel("수동 새로고침")
-            Button { showingSettings = true } label: { Image(systemName: "slider.horizontal.3").font(.system(size: 19)).frame(width: 40, height: 40) }.accessibilityLabel("설정")
-        }.padding(.horizontal, 18).padding(.top, 12).padding(.bottom, 16)
+                if store.isLoading { ProgressView().frame(width: 44, height: 44) }
+                else { Image(systemName: "arrow.clockwise").frame(width: 44, height: 44) }
+            }.disabled(store.isLoading).accessibilityLabel("새로고침")
+        }
+    }
+    private func select(_ flight: Flight) {
+        store.selectedID = flight.id
+        withAnimation { camera = .region(.init(center: flight.coordinate, span: .init(latitudeDelta: 6, longitudeDelta: 8))) }
     }
     private var radarMap: some View {
         Map(position: $camera, selection: $store.selectedID) {
             ForEach(store.filteredFlights) { flight in
                 Annotation(flight.label, coordinate: flight.coordinate, anchor: .center) {
-                    Button { store.selectedID = flight.id } label: {
-                        VStack(spacing: 4) {
-                            Image(systemName: "airplane").font(.system(size: store.selectedID == flight.id ? 25 : 19, weight: .semibold))
+                    Button { select(flight) } label: {
+                        VStack(spacing: 1) {
+                            Image(systemName: "airplane").font(.system(size: store.selectedID == flight.id ? 23 : 17, weight: .semibold))
                                 .rotationEffect(.degrees((flight.heading ?? 0) - 90))
-                                .foregroundStyle(store.selectedID == flight.id ? Color.orange : Theme.mint)
-                                .shadow(color: .white, radius: 2)
-                                .frame(width: 44, height: 44).contentShape(Rectangle())
-                            Text("\(flight.label) · \(flight.route)").font(.system(size: 9, weight: .bold, design: .monospaced)).foregroundStyle(.primary).padding(.horizontal, 5).padding(.vertical, 3).background(Theme.navy.opacity(0.9), in: Capsule())
-                        }
+                                .foregroundStyle(store.selectedID == flight.id ? Color(red: 0.94, green: 0.65, blue: 0.53) : Color(red: 0.48, green: 0.76, blue: 0.82))
+                                .shadow(color: .black.opacity(0.45), radius: 1)
+                            Text(flight.label).font(.system(size: 8, weight: .semibold, design: .monospaced))
+                                .foregroundStyle(.primary).padding(.horizontal, 3).background(.regularMaterial, in: RoundedRectangle(cornerRadius: 3))
+                        }.frame(minWidth: 44, minHeight: 44).contentShape(Rectangle())
                     }.buttonStyle(.plain).accessibilityLabel("\(flight.label), \(flight.route)")
                 }.tag(flight.id)
             }
         }.mapStyle(.standard(elevation: .flat, emphasis: .muted, pointsOfInterest: .excludingAll, showsTraffic: false))
-        .mapControlVisibility(.hidden)
+            .mapControlVisibility(.hidden)
     }
-    private func badge(_ text: String, icon: String, color: Color) -> some View { Label(text, systemImage: icon).font(.system(size: 10, weight: .semibold)).foregroundStyle(color).padding(.horizontal, 10).padding(.vertical, 7).background(color.opacity(0.09), in: Capsule()) }
 }
 
 struct FlightDetailCard: View {
