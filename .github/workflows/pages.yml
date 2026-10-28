@@ -22,6 +22,22 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Use GitHub Actions as Pages source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node --input-type=module <<'JS'
+          const endpoint='https://api.github.com/repos/'+process.env.GITHUB_REPOSITORY+'/pages';
+          const headers={Authorization:'Bearer '+process.env.GH_TOKEN,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
+          const current=await fetch(endpoint,{headers});
+          if(!current.ok)throw Error('Cannot read Pages configuration: HTTP '+current.status);
+          const settings=await current.json();
+          if(settings.build_type!=='workflow'){
+            const response=await fetch(endpoint,{method:'PUT',headers:{...headers,'Content-Type':'application/json'},body:JSON.stringify({build_type:'workflow'})});
+            if(!response.ok)throw Error('Cannot switch Pages source: HTTP '+response.status+' '+await response.text());
+          }
+          console.log('GitHub Pages source is GitHub Actions');
+          JS
       - uses: actions/configure-pages@v5
       - name: Build static frontend
         run: node Web/scripts/build-pages.mjs
