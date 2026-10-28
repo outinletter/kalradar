@@ -1,6 +1,6 @@
 {
-  "version": "1.4",
-  "build": 13,
+  "version": "1.5",
+  "build": 31,
   "refreshInterval": 30,
   "filterPattern": "^KAL[0-9]+[A-Z]?$",
   "appName": "KAL Radar",
@@ -40,7 +40,11 @@
       "origin": "ICN",
       "destination": "NRT",
       "registration": "DEMO-1",
-      "source": "FICTIONAL DEMO"
+      "source": "FICTIONAL DEMO",
+      "departureTime": "2026-10-27T01:00:00Z",
+      "estimatedArrivalTime": "2026-10-27T03:30:00Z",
+      "departureTimeZone": "Asia/Seoul",
+      "arrivalTimeZone": "Asia/Tokyo"
     },
     {
       "id": "demo-2",
@@ -76,8 +80,8 @@
       "id": "demo-4",
       "number": "KE9004",
       "callsign": "KAL9004",
-      "latitude": 44.0,
-      "longitude": 144.0,
+      "latitude": 44,
+      "longitude": 144,
       "heading": 42,
       "altitude": 37000,
       "speed": 490,
@@ -85,7 +89,11 @@
       "origin": "ICN",
       "destination": "LAX",
       "registration": "DEMO-4",
-      "source": "FICTIONAL DEMO"
+      "source": "FICTIONAL DEMO",
+      "departureTime": "2026-10-27T01:00:00Z",
+      "estimatedArrivalTime": "2026-10-27T13:00:00Z",
+      "departureTimeZone": "Asia/Seoul",
+      "arrivalTimeZone": "America/Los_Angeles"
     },
     {
       "id": "demo-5",
@@ -149,5 +157,6101 @@
     }
   ],
   "routeBaseURL": "https://api.adsbdb.com/v0/callsign/",
-  "staleAfterSeconds": 120
+  "staleAfterSeconds": 120,
+  "scheduleCatalog": {
+    "schemaVersion": 1,
+    "seasons": [
+      {
+        "id": "ke-published-동계-2026-03-29-2027-03-27",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-03-29",
+        "validThrough": "2027-03-27",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE2051",
+            "origin": "GMP",
+            "destination": "PEK"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-08-30-2027-03-27",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-08-30",
+        "validThrough": "2027-03-27",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE2103",
+            "origin": "GMP",
+            "destination": "HND"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-09-02-2026-10-31",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-09-02",
+        "validThrough": "2026-10-31",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE081",
+            "origin": "ICN",
+            "destination": "JFK"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-09-03-2026-10-31",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-09-03",
+        "validThrough": "2026-10-31",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE035",
+            "origin": "ICN",
+            "destination": "ATL"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-03-2027-10-30",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-03",
+        "validThrough": "2027-10-30",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE116",
+            "origin": "YNJ",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2026-10-03-2027-10-30",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-03",
+        "validThrough": "2027-10-30",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE116",
+            "origin": "YNJ",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-21-2026-10-31",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-21",
+        "validThrough": "2026-10-31",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE037",
+            "origin": "ICN",
+            "destination": "ORD"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2026-11-18",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2026-11-18",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE1017",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1053",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1075",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1089",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1103",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1115",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1127",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1143",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1154",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1156",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1157",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1169",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1180",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1185",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1208",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1209",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1223",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1224",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1235",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1236",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1244",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1262",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1268",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1276",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1298",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1308",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1314",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1316",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1318",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1334",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1359",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1360",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1508",
+            "origin": "CJU",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1511",
+            "origin": "PUS",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1521",
+            "origin": "PUS",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1530",
+            "origin": "CJU",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1539",
+            "origin": "PUS",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1542",
+            "origin": "CJU",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1551",
+            "origin": "PUS",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1558",
+            "origin": "CJU",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1567",
+            "origin": "TAE",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1576",
+            "origin": "CJU",
+            "destination": "TAE"
+          },
+          {
+            "number": "KE1579",
+            "origin": "TAE",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1609",
+            "origin": "KWJ",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1621",
+            "origin": "KWJ",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1622",
+            "origin": "CJU",
+            "destination": "KWJ"
+          },
+          {
+            "number": "KE1626",
+            "origin": "CJU",
+            "destination": "KWJ"
+          },
+          {
+            "number": "KE1629",
+            "origin": "KWJ",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1701",
+            "origin": "CJJ",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1702",
+            "origin": "CJU",
+            "destination": "CJJ"
+          },
+          {
+            "number": "KE1709",
+            "origin": "CJJ",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1716",
+            "origin": "CJU",
+            "destination": "CJJ"
+          },
+          {
+            "number": "KE1719",
+            "origin": "CJJ",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1722",
+            "origin": "CJU",
+            "destination": "CJJ"
+          },
+          {
+            "number": "KE1723",
+            "origin": "CJJ",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1726",
+            "origin": "CJU",
+            "destination": "CJJ"
+          },
+          {
+            "number": "KE1752",
+            "origin": "CJU",
+            "destination": "CJJ"
+          },
+          {
+            "number": "KE1802",
+            "origin": "PUS",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1803",
+            "origin": "GMP",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1806",
+            "origin": "PUS",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1808",
+            "origin": "PUS",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1811",
+            "origin": "GMP",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1813",
+            "origin": "GMP",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1815",
+            "origin": "GMP",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1820",
+            "origin": "PUS",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1824",
+            "origin": "PUS",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1826",
+            "origin": "PUS",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1828",
+            "origin": "PUS",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1833",
+            "origin": "GMP",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1835",
+            "origin": "GMP",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1836",
+            "origin": "PUS",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1839",
+            "origin": "GMP",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE647",
+            "origin": "ICN",
+            "destination": "SIN"
+          },
+          {
+            "number": "KE955",
+            "origin": "ICN",
+            "destination": "IST"
+          },
+          {
+            "number": "KE956",
+            "origin": "IST",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2027-03-27",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2027-03-27",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE071",
+            "origin": "ICN",
+            "destination": "YVR"
+          },
+          {
+            "number": "KE072",
+            "origin": "YVR",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE1067",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE115",
+            "origin": "ICN",
+            "destination": "YNJ"
+          },
+          {
+            "number": "KE127",
+            "origin": "ICN",
+            "destination": "FOC"
+          },
+          {
+            "number": "KE128",
+            "origin": "FOC",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE137",
+            "origin": "ICN",
+            "destination": "XIY"
+          },
+          {
+            "number": "KE138",
+            "origin": "XIY",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE1548",
+            "origin": "CJU",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1570",
+            "origin": "CJU",
+            "destination": "TAE"
+          },
+          {
+            "number": "KE1595",
+            "origin": "USN",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1596",
+            "origin": "CJU",
+            "destination": "USN"
+          },
+          {
+            "number": "KE1635",
+            "origin": "RSU",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1636",
+            "origin": "CJU",
+            "destination": "RSU"
+          },
+          {
+            "number": "KE1819",
+            "origin": "GMP",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1843",
+            "origin": "GMP",
+            "destination": "USN"
+          },
+          {
+            "number": "KE1844",
+            "origin": "USN",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1847",
+            "origin": "GMP",
+            "destination": "USN"
+          },
+          {
+            "number": "KE1848",
+            "origin": "USN",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE2005",
+            "origin": "ICN",
+            "destination": "HKG"
+          },
+          {
+            "number": "KE2006",
+            "origin": "HKG",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2015",
+            "origin": "ICN",
+            "destination": "MFM"
+          },
+          {
+            "number": "KE2016",
+            "origin": "MFM",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2031",
+            "origin": "ICN",
+            "destination": "RMQ"
+          },
+          {
+            "number": "KE2032",
+            "origin": "RMQ",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2052",
+            "origin": "PEK",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE2071",
+            "origin": "PUS",
+            "destination": "PVG"
+          },
+          {
+            "number": "KE2072",
+            "origin": "PVG",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE2081",
+            "origin": "PUS",
+            "destination": "TAO"
+          },
+          {
+            "number": "KE2082",
+            "origin": "TAO",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE2085",
+            "origin": "PUS",
+            "destination": "TPE"
+          },
+          {
+            "number": "KE2086",
+            "origin": "TPE",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE2093",
+            "origin": "PUS",
+            "destination": "DAD"
+          },
+          {
+            "number": "KE2101",
+            "origin": "GMP",
+            "destination": "HND"
+          },
+          {
+            "number": "KE2102",
+            "origin": "HND",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE2104",
+            "origin": "HND",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE2105",
+            "origin": "GMP",
+            "destination": "HND"
+          },
+          {
+            "number": "KE2117",
+            "origin": "GMP",
+            "destination": "KIX"
+          },
+          {
+            "number": "KE2118",
+            "origin": "KIX",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE2129",
+            "origin": "PUS",
+            "destination": "NRT"
+          },
+          {
+            "number": "KE2130",
+            "origin": "NRT",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE2131",
+            "origin": "PUS",
+            "destination": "NRT"
+          },
+          {
+            "number": "KE2132",
+            "origin": "NRT",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE2133",
+            "origin": "PUS",
+            "destination": "NGO"
+          },
+          {
+            "number": "KE2134",
+            "origin": "NGO",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE2147",
+            "origin": "ICN",
+            "destination": "OKA"
+          },
+          {
+            "number": "KE2148",
+            "origin": "OKA",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2180",
+            "origin": "KOJ",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE427",
+            "origin": "ICN",
+            "destination": "KUL"
+          },
+          {
+            "number": "KE428",
+            "origin": "KUL",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE441",
+            "origin": "ICN",
+            "destination": "HAN"
+          },
+          {
+            "number": "KE442",
+            "origin": "HAN",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE475",
+            "origin": "ICN",
+            "destination": "SGN"
+          },
+          {
+            "number": "KE476",
+            "origin": "SGN",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE479",
+            "origin": "ICN",
+            "destination": "SGN"
+          },
+          {
+            "number": "KE497",
+            "origin": "ICN",
+            "destination": "DEL"
+          },
+          {
+            "number": "KE498",
+            "origin": "DEL",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE621",
+            "origin": "ICN",
+            "destination": "MNL"
+          },
+          {
+            "number": "KE622",
+            "origin": "MNL",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE657",
+            "origin": "ICN",
+            "destination": "BKK"
+          },
+          {
+            "number": "KE658",
+            "origin": "BKK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE705",
+            "origin": "ICN",
+            "destination": "NRT"
+          },
+          {
+            "number": "KE721",
+            "origin": "ICN",
+            "destination": "KIX"
+          },
+          {
+            "number": "KE723",
+            "origin": "ICN",
+            "destination": "KIX"
+          },
+          {
+            "number": "KE724",
+            "origin": "KIX",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE835",
+            "origin": "ICN",
+            "destination": "SZX"
+          },
+          {
+            "number": "KE836",
+            "origin": "SZX",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE841",
+            "origin": "ICN",
+            "destination": "TAO"
+          },
+          {
+            "number": "KE842",
+            "origin": "TAO",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE867",
+            "origin": "ICN",
+            "destination": "CAN"
+          },
+          {
+            "number": "KE868",
+            "origin": "CAN",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE891",
+            "origin": "ICN",
+            "destination": "PVG"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2026-11-21",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2026-11-21",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE1603",
+            "origin": "KWJ",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1604",
+            "origin": "CJU",
+            "destination": "KWJ"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2026-12-16",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2026-12-16",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE2058",
+            "origin": "SHA",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE2119",
+            "origin": "GMP",
+            "destination": "KIX"
+          },
+          {
+            "number": "KE2120",
+            "origin": "KIX",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE2177",
+            "origin": "ICN",
+            "destination": "OIT"
+          },
+          {
+            "number": "KE2178",
+            "origin": "OIT",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE411",
+            "origin": "ICN",
+            "destination": "AKL"
+          },
+          {
+            "number": "KE623",
+            "origin": "ICN",
+            "destination": "MNL"
+          },
+          {
+            "number": "KE624",
+            "origin": "MNL",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE651",
+            "origin": "ICN",
+            "destination": "BKK"
+          },
+          {
+            "number": "KE652",
+            "origin": "BKK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE781",
+            "origin": "ICN",
+            "destination": "FUK"
+          },
+          {
+            "number": "KE782",
+            "origin": "FUK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE927",
+            "origin": "ICN",
+            "destination": "MXP"
+          },
+          {
+            "number": "KE928",
+            "origin": "MXP",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2026-11-06",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2026-11-06",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE843",
+            "origin": "ICN",
+            "destination": "TAO"
+          },
+          {
+            "number": "KE844",
+            "origin": "TAO",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2026-12-17",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2026-12-17",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE125",
+            "origin": "ICN",
+            "destination": "XMN"
+          },
+          {
+            "number": "KE126",
+            "origin": "XMN",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE1614",
+            "origin": "CJU",
+            "destination": "KWJ"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2027-03-26",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2027-03-26",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE161",
+            "origin": "ICN",
+            "destination": "KMG"
+          },
+          {
+            "number": "KE162",
+            "origin": "KMG",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2065",
+            "origin": "CJU",
+            "destination": "PEK"
+          },
+          {
+            "number": "KE2066",
+            "origin": "PEK",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE2125",
+            "origin": "CJU",
+            "destination": "NRT"
+          },
+          {
+            "number": "KE2126",
+            "origin": "NRT",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE2189",
+            "origin": "ICN",
+            "destination": "KMQ"
+          },
+          {
+            "number": "KE2190",
+            "origin": "KMQ",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE852",
+            "origin": "PEK",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2027-01-03",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2027-01-03",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE677",
+            "origin": "ICN",
+            "destination": "HKT"
+          },
+          {
+            "number": "KE678",
+            "origin": "HKT",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2026-12-06",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2026-12-06",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE051",
+            "origin": "ICN",
+            "destination": "HNL"
+          },
+          {
+            "number": "KE052",
+            "origin": "HNL",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE159",
+            "origin": "ICN",
+            "destination": "WUH"
+          },
+          {
+            "number": "KE160",
+            "origin": "WUH",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2026-11-03",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2026-11-03",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE1562",
+            "origin": "CJU",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE887",
+            "origin": "ICN",
+            "destination": "PVG"
+          },
+          {
+            "number": "KE888",
+            "origin": "PVG",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2026-11-08",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2026-11-08",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE1041",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1795",
+            "origin": "CJJ",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1796",
+            "origin": "CJU",
+            "destination": "CJJ"
+          },
+          {
+            "number": "KE855",
+            "origin": "ICN",
+            "destination": "PEK"
+          },
+          {
+            "number": "KE856",
+            "origin": "PEK",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2026-11-17",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2026-11-17",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE1059",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1563",
+            "origin": "PUS",
+            "destination": "CJU"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2026-11-09",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2026-11-09",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE805",
+            "origin": "ICN",
+            "destination": "TSN"
+          },
+          {
+            "number": "KE806",
+            "origin": "TSN",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2026-11-04",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2026-11-04",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE2155",
+            "origin": "ICN",
+            "destination": "KMJ"
+          },
+          {
+            "number": "KE2156",
+            "origin": "KMJ",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE625",
+            "origin": "ICN",
+            "destination": "MNL"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2026-11-07",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2026-11-07",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE769",
+            "origin": "ICN",
+            "destination": "CTS"
+          },
+          {
+            "number": "KE770",
+            "origin": "CTS",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2026-12-15",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2026-12-15",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE653",
+            "origin": "ICN",
+            "destination": "BKK"
+          },
+          {
+            "number": "KE913",
+            "origin": "ICN",
+            "destination": "MAD"
+          },
+          {
+            "number": "KE914",
+            "origin": "MAD",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE925",
+            "origin": "ICN",
+            "destination": "AMS"
+          },
+          {
+            "number": "KE926",
+            "origin": "AMS",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2027-01-31",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2027-01-31",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE751",
+            "origin": "ICN",
+            "destination": "HND"
+          },
+          {
+            "number": "KE907",
+            "origin": "ICN",
+            "destination": "LHR"
+          },
+          {
+            "number": "KE908",
+            "origin": "LHR",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2026-12-31",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2026-12-31",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE2197",
+            "origin": "ICN",
+            "destination": "KIJ"
+          },
+          {
+            "number": "KE2198",
+            "origin": "KIJ",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2027-02-05",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2027-02-05",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE2193",
+            "origin": "ICN",
+            "destination": "AOJ"
+          },
+          {
+            "number": "KE2194",
+            "origin": "AOJ",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2027-03-07",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2027-03-07",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE431",
+            "origin": "ICN",
+            "destination": "DPS"
+          },
+          {
+            "number": "KE432",
+            "origin": "DPS",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2026-11-12",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2026-11-12",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE433",
+            "origin": "ICN",
+            "destination": "DPS"
+          },
+          {
+            "number": "KE659",
+            "origin": "ICN",
+            "destination": "BKK"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2026-11-10",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2026-11-10",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE643",
+            "origin": "ICN",
+            "destination": "SIN"
+          },
+          {
+            "number": "KE644",
+            "origin": "SIN",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2026-11-22",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2026-11-22",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE683",
+            "origin": "ICN",
+            "destination": "CNX"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2026-12-05",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2026-12-05",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE485",
+            "origin": "ICN",
+            "destination": "PQC"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2027-02-28",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2027-02-28",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE689",
+            "origin": "ICN",
+            "destination": "KTI"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2027-01-02",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2027-01-02",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE075",
+            "origin": "ICN",
+            "destination": "YVR"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2027-03-14",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2027-03-14",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE053",
+            "origin": "ICN",
+            "destination": "HNL"
+          },
+          {
+            "number": "KE054",
+            "origin": "HNL",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2027-03-21",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2027-03-21",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE921",
+            "origin": "ICN",
+            "destination": "LIS"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2026-11-11",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2026-11-11",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE937",
+            "origin": "ICN",
+            "destination": "VIE"
+          },
+          {
+            "number": "KE938",
+            "origin": "VIE",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2027-01-10",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2027-01-10",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE945",
+            "origin": "ICN",
+            "destination": "FRA"
+          },
+          {
+            "number": "KE946",
+            "origin": "FRA",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-25-2027-03-22",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-25",
+        "validThrough": "2027-03-22",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE922",
+            "origin": "LIS",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-26-2027-03-27",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-26",
+        "validThrough": "2027-03-27",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE1585",
+            "origin": "HIN",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1586",
+            "origin": "CJU",
+            "destination": "HIN"
+          },
+          {
+            "number": "KE2094",
+            "origin": "DAD",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE2106",
+            "origin": "HND",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE2179",
+            "origin": "ICN",
+            "destination": "KOJ"
+          },
+          {
+            "number": "KE2191",
+            "origin": "ICN",
+            "destination": "NGS"
+          },
+          {
+            "number": "KE2192",
+            "origin": "NGS",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE401",
+            "origin": "ICN",
+            "destination": "SYD"
+          },
+          {
+            "number": "KE402",
+            "origin": "SYD",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE480",
+            "origin": "SGN",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE706",
+            "origin": "NRT",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE722",
+            "origin": "KIX",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE892",
+            "origin": "PVG",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE931",
+            "origin": "ICN",
+            "destination": "FCO"
+          },
+          {
+            "number": "KE932",
+            "origin": "FCO",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-26-2027-03-01",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-26",
+        "validThrough": "2027-03-01",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE690",
+            "origin": "KTI",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-26-2027-03-26",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-26",
+        "validThrough": "2027-03-26",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE107",
+            "origin": "ICN",
+            "destination": "HGH"
+          },
+          {
+            "number": "KE108",
+            "origin": "HGH",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-26-2026-11-03",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-26",
+        "validThrough": "2026-11-03",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE626",
+            "origin": "MNL",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-26-2026-11-23",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-26",
+        "validThrough": "2026-11-23",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE684",
+            "origin": "CNX",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-26-2026-12-16",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-26",
+        "validThrough": "2026-12-16",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE133",
+            "origin": "ICN",
+            "destination": "CGO"
+          },
+          {
+            "number": "KE134",
+            "origin": "CGO",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2043",
+            "origin": "ICN",
+            "destination": "UBN"
+          },
+          {
+            "number": "KE2044",
+            "origin": "UBN",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2057",
+            "origin": "GMP",
+            "destination": "SHA"
+          },
+          {
+            "number": "KE467",
+            "origin": "ICN",
+            "destination": "CXR"
+          },
+          {
+            "number": "KE468",
+            "origin": "CXR",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE654",
+            "origin": "BKK",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-26-2026-12-05",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-26",
+        "validThrough": "2026-12-05",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE486",
+            "origin": "PQC",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-26-2027-02-01",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-26",
+        "validThrough": "2027-02-01",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE752",
+            "origin": "HND",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-26-2026-11-17",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-26",
+        "validThrough": "2026-11-17",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE1122",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE434",
+            "origin": "DPS",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-26-2026-11-18",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-26",
+        "validThrough": "2026-11-18",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE1013",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1150",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1505",
+            "origin": "PUS",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1751",
+            "origin": "CJJ",
+            "destination": "CJU"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-26-2026-11-14",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-26",
+        "validThrough": "2026-11-14",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE1107",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1168",
+            "origin": "CJU",
+            "destination": "GMP"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-26-2026-11-07",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-26",
+        "validThrough": "2026-11-07",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE1041",
+            "origin": "GMP",
+            "destination": "CJU"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-26-2027-01-13",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-26",
+        "validThrough": "2027-01-13",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE901",
+            "origin": "ICN",
+            "destination": "CDG"
+          },
+          {
+            "number": "KE902",
+            "origin": "CDG",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-26-2026-11-06",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-26",
+        "validThrough": "2026-11-06",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE703",
+            "origin": "ICN",
+            "destination": "NRT"
+          },
+          {
+            "number": "KE704",
+            "origin": "NRT",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-26-2027-03-22",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-26",
+        "validThrough": "2027-03-22",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE921",
+            "origin": "ICN",
+            "destination": "LIS"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-26-2026-11-11",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-26",
+        "validThrough": "2026-11-11",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE969",
+            "origin": "ICN",
+            "destination": "PRG"
+          },
+          {
+            "number": "KE970",
+            "origin": "PRG",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-26-2027-03-20",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-26",
+        "validThrough": "2027-03-20",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE407",
+            "origin": "ICN",
+            "destination": "BNE"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-26-2026-11-19",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-26",
+        "validThrough": "2026-11-19",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE648",
+            "origin": "SIN",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-26-2026-12-31",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-26",
+        "validThrough": "2026-12-31",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE076",
+            "origin": "YVR",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-26-2026-11-13",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-26",
+        "validThrough": "2026-11-13",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE660",
+            "origin": "BKK",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-26-2026-12-17",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-26",
+        "validThrough": "2026-12-17",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE412",
+            "origin": "AKL",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-27-2026-11-12",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-27",
+        "validThrough": "2026-11-12",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE843",
+            "origin": "ICN",
+            "destination": "TAO"
+          },
+          {
+            "number": "KE844",
+            "origin": "TAO",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-27-2026-12-15",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-27",
+        "validThrough": "2026-12-15",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE2181",
+            "origin": "ICN",
+            "destination": "KOJ"
+          },
+          {
+            "number": "KE2182",
+            "origin": "KOJ",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-27-2026-12-16",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-27",
+        "validThrough": "2026-12-16",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE447",
+            "origin": "ICN",
+            "destination": "HAN"
+          },
+          {
+            "number": "KE448",
+            "origin": "HAN",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE727",
+            "origin": "ICN",
+            "destination": "KIX"
+          },
+          {
+            "number": "KE728",
+            "origin": "KIX",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-27-2027-03-27",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-27",
+        "validThrough": "2027-03-27",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE1149",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1172",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE145",
+            "origin": "ICN",
+            "destination": "CSX"
+          },
+          {
+            "number": "KE2185",
+            "origin": "ICN",
+            "destination": "OKJ"
+          },
+          {
+            "number": "KE2186",
+            "origin": "OKJ",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE963",
+            "origin": "ICN",
+            "destination": "BUD"
+          },
+          {
+            "number": "KE964",
+            "origin": "BUD",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-27-2026-11-17",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-27",
+        "validThrough": "2026-11-17",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE1133",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1194",
+            "origin": "CJU",
+            "destination": "GMP"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-27-2026-11-11",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-27",
+        "validThrough": "2026-11-11",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE415",
+            "origin": "ICN",
+            "destination": "GUM"
+          },
+          {
+            "number": "KE416",
+            "origin": "GUM",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-27-2027-03-23",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-27",
+        "validThrough": "2027-03-23",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE491",
+            "origin": "ICN",
+            "destination": "RGN"
+          },
+          {
+            "number": "KE492",
+            "origin": "RGN",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-27-2027-03-26",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-27",
+        "validThrough": "2027-03-26",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE695",
+            "origin": "ICN",
+            "destination": "KTM"
+          },
+          {
+            "number": "KE696",
+            "origin": "KTM",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-27-2027-03-21",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-27",
+        "validThrough": "2027-03-21",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE408",
+            "origin": "BNE",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-28-2026-10-28",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-28",
+        "validThrough": "2026-10-28",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE1351",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE2001",
+            "origin": "ICN",
+            "destination": "HKG"
+          },
+          {
+            "number": "KE2002",
+            "origin": "HKG",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2025",
+            "origin": "ICN",
+            "destination": "TPE"
+          },
+          {
+            "number": "KE2026",
+            "origin": "TPE",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2029",
+            "origin": "ICN",
+            "destination": "TPE"
+          },
+          {
+            "number": "KE2030",
+            "origin": "TPE",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2171",
+            "origin": "ICN",
+            "destination": "UKB"
+          },
+          {
+            "number": "KE2172",
+            "origin": "UKB",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2173",
+            "origin": "ICN",
+            "destination": "UKB"
+          },
+          {
+            "number": "KE2174",
+            "origin": "UKB",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE711",
+            "origin": "ICN",
+            "destination": "NRT"
+          },
+          {
+            "number": "KE712",
+            "origin": "NRT",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE725",
+            "origin": "ICN",
+            "destination": "KIX"
+          },
+          {
+            "number": "KE726",
+            "origin": "KIX",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE745",
+            "origin": "ICN",
+            "destination": "NGO"
+          },
+          {
+            "number": "KE746",
+            "origin": "NGO",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE787",
+            "origin": "ICN",
+            "destination": "FUK"
+          },
+          {
+            "number": "KE788",
+            "origin": "FUK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE833",
+            "origin": "ICN",
+            "destination": "SHE"
+          },
+          {
+            "number": "KE834",
+            "origin": "SHE",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-28-2026-11-23",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-28",
+        "validThrough": "2026-11-23",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE791",
+            "origin": "ICN",
+            "destination": "FUK"
+          },
+          {
+            "number": "KE792",
+            "origin": "FUK",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-28-2027-03-24",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-28",
+        "validThrough": "2027-03-24",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE1061",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE107",
+            "origin": "ICN",
+            "destination": "HGH"
+          },
+          {
+            "number": "KE108",
+            "origin": "HGH",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2185",
+            "origin": "ICN",
+            "destination": "OKJ"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-28-2027-03-25",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-28",
+        "validThrough": "2027-03-25",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE146",
+            "origin": "CSX",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-28-2026-11-01",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-28",
+        "validThrough": "2026-11-01",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE831",
+            "origin": "ICN",
+            "destination": "SHE"
+          },
+          {
+            "number": "KE832",
+            "origin": "SHE",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-28-2026-10-30",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-28",
+        "validThrough": "2026-10-30",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE011",
+            "origin": "ICN",
+            "destination": "LAX"
+          },
+          {
+            "number": "KE012",
+            "origin": "LAX",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE101",
+            "origin": "ICN",
+            "destination": "NKG"
+          },
+          {
+            "number": "KE102",
+            "origin": "NKG",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE713",
+            "origin": "ICN",
+            "destination": "NRT"
+          },
+          {
+            "number": "KE714",
+            "origin": "NRT",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE873",
+            "origin": "ICN",
+            "destination": "DLC"
+          },
+          {
+            "number": "KE874",
+            "origin": "DLC",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-28-2026-11-04",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-28",
+        "validThrough": "2026-11-04",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE2012",
+            "origin": "HKG",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE418",
+            "origin": "GUM",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE437",
+            "origin": "ICN",
+            "destination": "CGK"
+          },
+          {
+            "number": "KE438",
+            "origin": "CGK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE457",
+            "origin": "ICN",
+            "destination": "DAD"
+          },
+          {
+            "number": "KE458",
+            "origin": "DAD",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE471",
+            "origin": "ICN",
+            "destination": "SGN"
+          },
+          {
+            "number": "KE472",
+            "origin": "SGN",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE601",
+            "origin": "ICN",
+            "destination": "CEB"
+          },
+          {
+            "number": "KE602",
+            "origin": "CEB",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE707",
+            "origin": "ICN",
+            "destination": "NRT"
+          },
+          {
+            "number": "KE708",
+            "origin": "NRT",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE738",
+            "origin": "KIX",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE749",
+            "origin": "ICN",
+            "destination": "NGO"
+          },
+          {
+            "number": "KE750",
+            "origin": "NGO",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE765",
+            "origin": "ICN",
+            "destination": "CTS"
+          },
+          {
+            "number": "KE766",
+            "origin": "CTS",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE863",
+            "origin": "ICN",
+            "destination": "PEK"
+          },
+          {
+            "number": "KE864",
+            "origin": "PEK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE881",
+            "origin": "ICN",
+            "destination": "PVG"
+          },
+          {
+            "number": "KE882",
+            "origin": "PVG",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-28-2026-11-26",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-28",
+        "validThrough": "2026-11-26",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE459",
+            "origin": "ICN",
+            "destination": "DAD"
+          },
+          {
+            "number": "KE460",
+            "origin": "DAD",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-28-2026-10-31",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-28",
+        "validThrough": "2026-10-31",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE005",
+            "origin": "ICN",
+            "destination": "LAS"
+          },
+          {
+            "number": "KE006",
+            "origin": "LAS",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE017",
+            "origin": "ICN",
+            "destination": "LAX"
+          },
+          {
+            "number": "KE018",
+            "origin": "LAX",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE023",
+            "origin": "ICN",
+            "destination": "SFO"
+          },
+          {
+            "number": "KE024",
+            "origin": "SFO",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE031",
+            "origin": "ICN",
+            "destination": "DFW"
+          },
+          {
+            "number": "KE032",
+            "origin": "DFW",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE033",
+            "origin": "ICN",
+            "destination": "ATL"
+          },
+          {
+            "number": "KE034",
+            "origin": "ATL",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE036",
+            "origin": "ATL",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE038",
+            "origin": "ORD",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE041",
+            "origin": "ICN",
+            "destination": "SEA"
+          },
+          {
+            "number": "KE042",
+            "origin": "SEA",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE048",
+            "origin": "SEA",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE077",
+            "origin": "ICN",
+            "destination": "YYZ"
+          },
+          {
+            "number": "KE078",
+            "origin": "YYZ",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE082",
+            "origin": "JFK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE085",
+            "origin": "ICN",
+            "destination": "JFK"
+          },
+          {
+            "number": "KE086",
+            "origin": "JFK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE091",
+            "origin": "ICN",
+            "destination": "BOS"
+          },
+          {
+            "number": "KE092",
+            "origin": "BOS",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE093",
+            "origin": "ICN",
+            "destination": "IAD"
+          },
+          {
+            "number": "KE094",
+            "origin": "IAD",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE737",
+            "origin": "ICN",
+            "destination": "KIX"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-28-2026-11-18",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-28",
+        "validThrough": "2026-11-18",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE1122",
+            "origin": "CJU",
+            "destination": "GMP"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-28-2026-11-09",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-28",
+        "validThrough": "2026-11-09",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE851",
+            "origin": "ICN",
+            "destination": "PEK"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-28-2026-12-16",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-28",
+        "validThrough": "2026-12-16",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE2011",
+            "origin": "ICN",
+            "destination": "HKG"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-28-2027-01-31",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-28",
+        "validThrough": "2027-01-31",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE645",
+            "origin": "ICN",
+            "destination": "SIN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-28-2027-03-26",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-28",
+        "validThrough": "2027-03-26",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE921",
+            "origin": "ICN",
+            "destination": "LIS"
+          },
+          {
+            "number": "KE922",
+            "origin": "LIS",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-28-2027-03-27",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-28",
+        "validThrough": "2027-03-27",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE417",
+            "origin": "ICN",
+            "destination": "GUM"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-28-2027-02-01",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-28",
+        "validThrough": "2027-02-01",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE646",
+            "origin": "SIN",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-29-2026-10-29",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-29",
+        "validThrough": "2026-10-29",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE155",
+            "origin": "ICN",
+            "destination": "HFE"
+          },
+          {
+            "number": "KE156",
+            "origin": "HFE",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2011",
+            "origin": "ICN",
+            "destination": "HKG"
+          },
+          {
+            "number": "KE2029",
+            "origin": "ICN",
+            "destination": "TPE"
+          },
+          {
+            "number": "KE2030",
+            "origin": "TPE",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE745",
+            "origin": "ICN",
+            "destination": "NGO"
+          },
+          {
+            "number": "KE746",
+            "origin": "NGO",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE787",
+            "origin": "ICN",
+            "destination": "FUK"
+          },
+          {
+            "number": "KE788",
+            "origin": "FUK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE831",
+            "origin": "ICN",
+            "destination": "SHE"
+          },
+          {
+            "number": "KE832",
+            "origin": "SHE",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE833",
+            "origin": "ICN",
+            "destination": "SHE"
+          },
+          {
+            "number": "KE834",
+            "origin": "SHE",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE851",
+            "origin": "ICN",
+            "destination": "PEK"
+          },
+          {
+            "number": "KE852",
+            "origin": "PEK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE863",
+            "origin": "ICN",
+            "destination": "PEK"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-29-2027-03-27",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-29",
+        "validThrough": "2027-03-27",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE2171",
+            "origin": "ICN",
+            "destination": "UKB"
+          },
+          {
+            "number": "KE2172",
+            "origin": "UKB",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2173",
+            "origin": "ICN",
+            "destination": "UKB"
+          },
+          {
+            "number": "KE2174",
+            "origin": "UKB",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2189",
+            "origin": "ICN",
+            "destination": "KMQ"
+          },
+          {
+            "number": "KE2190",
+            "origin": "KMQ",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE711",
+            "origin": "ICN",
+            "destination": "NRT"
+          },
+          {
+            "number": "KE712",
+            "origin": "NRT",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-29-2026-12-08",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-29",
+        "validThrough": "2026-12-08",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE873",
+            "origin": "ICN",
+            "destination": "DLC"
+          },
+          {
+            "number": "KE874",
+            "origin": "DLC",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-29-2026-10-31",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-29",
+        "validThrough": "2026-10-31",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE011",
+            "origin": "ICN",
+            "destination": "LAX"
+          },
+          {
+            "number": "KE012",
+            "origin": "LAX",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE713",
+            "origin": "ICN",
+            "destination": "NRT"
+          },
+          {
+            "number": "KE714",
+            "origin": "NRT",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-29-2027-03-25",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-29",
+        "validThrough": "2027-03-25",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE2125",
+            "origin": "CJU",
+            "destination": "NRT"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-29-2026-11-05",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-29",
+        "validThrough": "2026-11-05",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE750",
+            "origin": "NGO",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE887",
+            "origin": "ICN",
+            "destination": "PVG"
+          },
+          {
+            "number": "KE888",
+            "origin": "PVG",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-29-2026-11-26",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-29",
+        "validThrough": "2026-11-26",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE2001",
+            "origin": "ICN",
+            "destination": "HKG"
+          },
+          {
+            "number": "KE2002",
+            "origin": "HKG",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-29-2026-11-04",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-29",
+        "validThrough": "2026-11-04",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE725",
+            "origin": "ICN",
+            "destination": "KIX"
+          },
+          {
+            "number": "KE726",
+            "origin": "KIX",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE737",
+            "origin": "ICN",
+            "destination": "KIX"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-29-2026-12-18",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-29",
+        "validThrough": "2026-12-18",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE2025",
+            "origin": "ICN",
+            "destination": "TPE"
+          },
+          {
+            "number": "KE2026",
+            "origin": "TPE",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-29-2026-11-03",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-29",
+        "validThrough": "2026-11-03",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE625",
+            "origin": "ICN",
+            "destination": "MNL"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-29-2026-10-30",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-29",
+        "validThrough": "2026-10-30",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE047",
+            "origin": "ICN",
+            "destination": "SEA"
+          },
+          {
+            "number": "KE417",
+            "origin": "ICN",
+            "destination": "GUM"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-29-2026-11-01",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-29",
+        "validThrough": "2026-11-01",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE738",
+            "origin": "KIX",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-30-2026-11-13",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-30",
+        "validThrough": "2026-11-13",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE787",
+            "origin": "ICN",
+            "destination": "FUK"
+          },
+          {
+            "number": "KE788",
+            "origin": "FUK",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-30-2026-11-04",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-30",
+        "validThrough": "2026-11-04",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE626",
+            "origin": "MNL",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-30-2027-03-27",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-30",
+        "validThrough": "2027-03-27",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE833",
+            "origin": "ICN",
+            "destination": "SHE"
+          },
+          {
+            "number": "KE834",
+            "origin": "SHE",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-30-2027-02-05",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-30",
+        "validThrough": "2027-02-05",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE745",
+            "origin": "ICN",
+            "destination": "NGO"
+          },
+          {
+            "number": "KE746",
+            "origin": "NGO",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-30-2026-10-30",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-30",
+        "validThrough": "2026-10-30",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE2012",
+            "origin": "HKG",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE864",
+            "origin": "PEK",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-30-2026-10-31",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-30",
+        "validThrough": "2026-10-31",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE418",
+            "origin": "GUM",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE765",
+            "origin": "ICN",
+            "destination": "CTS"
+          },
+          {
+            "number": "KE766",
+            "origin": "CTS",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-30-2026-11-03",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-30",
+        "validThrough": "2026-11-03",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE749",
+            "origin": "ICN",
+            "destination": "NGO"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-30-2026-11-25",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-30",
+        "validThrough": "2026-11-25",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE2029",
+            "origin": "ICN",
+            "destination": "TPE"
+          },
+          {
+            "number": "KE2030",
+            "origin": "TPE",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-31-2026-11-04",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-31",
+        "validThrough": "2026-11-04",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE831",
+            "origin": "ICN",
+            "destination": "SHE"
+          },
+          {
+            "number": "KE832",
+            "origin": "SHE",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-31-2026-11-07",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-31",
+        "validThrough": "2026-11-07",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE155",
+            "origin": "ICN",
+            "destination": "HFE"
+          },
+          {
+            "number": "KE156",
+            "origin": "HFE",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE852",
+            "origin": "PEK",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-10-31-2026-10-31",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-10-31",
+        "validThrough": "2026-10-31",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE163",
+            "origin": "ICN",
+            "destination": "DYG"
+          },
+          {
+            "number": "KE164",
+            "origin": "DYG",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-11-01-2026-12-14",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-11-01",
+        "validThrough": "2026-12-14",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE873",
+            "origin": "ICN",
+            "destination": "DLC"
+          },
+          {
+            "number": "KE874",
+            "origin": "DLC",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-11-01-2026-12-30",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-11-01",
+        "validThrough": "2026-12-30",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE005",
+            "origin": "ICN",
+            "destination": "LAS"
+          },
+          {
+            "number": "KE006",
+            "origin": "LAS",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE033",
+            "origin": "ICN",
+            "destination": "ATL"
+          },
+          {
+            "number": "KE035",
+            "origin": "ICN",
+            "destination": "ATL"
+          },
+          {
+            "number": "KE037",
+            "origin": "ICN",
+            "destination": "ORD"
+          },
+          {
+            "number": "KE038",
+            "origin": "ORD",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE078",
+            "origin": "YYZ",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-11-01-2026-11-08",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-11-01",
+        "validThrough": "2026-11-08",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE017",
+            "origin": "ICN",
+            "destination": "LAX"
+          },
+          {
+            "number": "KE018",
+            "origin": "LAX",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-11-01-2026-11-03",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-11-01",
+        "validThrough": "2026-11-03",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE011",
+            "origin": "ICN",
+            "destination": "LAX"
+          },
+          {
+            "number": "KE012",
+            "origin": "LAX",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-11-01-2027-03-10",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-11-01",
+        "validThrough": "2027-03-10",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE031",
+            "origin": "ICN",
+            "destination": "DFW"
+          },
+          {
+            "number": "KE032",
+            "origin": "DFW",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE041",
+            "origin": "ICN",
+            "destination": "SEA"
+          },
+          {
+            "number": "KE042",
+            "origin": "SEA",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE077",
+            "origin": "ICN",
+            "destination": "YYZ"
+          },
+          {
+            "number": "KE081",
+            "origin": "ICN",
+            "destination": "JFK"
+          },
+          {
+            "number": "KE082",
+            "origin": "JFK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE085",
+            "origin": "ICN",
+            "destination": "JFK"
+          },
+          {
+            "number": "KE086",
+            "origin": "JFK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE093",
+            "origin": "ICN",
+            "destination": "IAD"
+          },
+          {
+            "number": "KE094",
+            "origin": "IAD",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-11-01-2026-11-04",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-11-01",
+        "validThrough": "2026-11-04",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE101",
+            "origin": "ICN",
+            "destination": "NKG"
+          },
+          {
+            "number": "KE102",
+            "origin": "NKG",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-11-01-2027-01-04",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-11-01",
+        "validThrough": "2027-01-04",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE036",
+            "origin": "ATL",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE091",
+            "origin": "ICN",
+            "destination": "BOS"
+          },
+          {
+            "number": "KE092",
+            "origin": "BOS",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-11-01-2027-01-03",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-11-01",
+        "validThrough": "2027-01-03",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE034",
+            "origin": "ATL",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-11-01-2026-12-16",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-11-01",
+        "validThrough": "2026-12-16",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE713",
+            "origin": "ICN",
+            "destination": "NRT"
+          },
+          {
+            "number": "KE714",
+            "origin": "NRT",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-11-01-2026-11-01",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-11-01",
+        "validThrough": "2026-11-01",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE863",
+            "origin": "ICN",
+            "destination": "PEK"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-11-01-2027-01-10",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-11-01",
+        "validThrough": "2027-01-10",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE023",
+            "origin": "ICN",
+            "destination": "SFO"
+          },
+          {
+            "number": "KE024",
+            "origin": "SFO",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-11-01-2026-12-15",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-11-01",
+        "validThrough": "2026-12-15",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE047",
+            "origin": "ICN",
+            "destination": "SEA"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-11-02-2026-11-02",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-11-02",
+        "validThrough": "2026-11-02",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE864",
+            "origin": "PEK",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-11-02-2026-12-16",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-11-02",
+        "validThrough": "2026-12-16",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE048",
+            "origin": "SEA",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-11-03-2026-12-29",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-11-03",
+        "validThrough": "2026-12-29",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE163",
+            "origin": "ICN",
+            "destination": "DYG"
+          },
+          {
+            "number": "KE164",
+            "origin": "DYG",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-동계-2026-11-04-2026-11-04",
+        "title": "대한항공 공식 동계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-11-04",
+        "validThrough": "2026-11-04",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE011",
+            "origin": "ICN",
+            "destination": "LAX"
+          },
+          {
+            "number": "KE012",
+            "origin": "LAX",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2026-11-05-2027-10-30",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2026-11-05",
+        "validThrough": "2027-10-30",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE1562",
+            "origin": "CJU",
+            "destination": "PUS"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-03-28-2027-10-30",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-03-28",
+        "validThrough": "2027-10-30",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE033",
+            "origin": "ICN",
+            "destination": "ATL"
+          },
+          {
+            "number": "KE034",
+            "origin": "ATL",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE077",
+            "origin": "ICN",
+            "destination": "YYZ"
+          },
+          {
+            "number": "KE085",
+            "origin": "ICN",
+            "destination": "JFK"
+          },
+          {
+            "number": "KE092",
+            "origin": "BOS",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE1011",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1033",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1041",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1055",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1063",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1073",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1075",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1077",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1083",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1101",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1123",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1124",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1132",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1144",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1145",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE115",
+            "origin": "ICN",
+            "destination": "YNJ"
+          },
+          {
+            "number": "KE1161",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1172",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1173",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1175",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1180",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1184",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1186",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1188",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1197",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1201",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1203",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1211",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1226",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1227",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1236",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE125",
+            "origin": "ICN",
+            "destination": "XMN"
+          },
+          {
+            "number": "KE1258",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE126",
+            "origin": "XMN",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE1264",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1266",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE127",
+            "origin": "ICN",
+            "destination": "FOC"
+          },
+          {
+            "number": "KE1278",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE128",
+            "origin": "FOC",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE1288",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1308",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1316",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1320",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1328",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE133",
+            "origin": "ICN",
+            "destination": "CGO"
+          },
+          {
+            "number": "KE1336",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE134",
+            "origin": "CGO",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE137",
+            "origin": "ICN",
+            "destination": "XIY"
+          },
+          {
+            "number": "KE138",
+            "origin": "XIY",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE1505",
+            "origin": "PUS",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1508",
+            "origin": "CJU",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1513",
+            "origin": "PUS",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1521",
+            "origin": "PUS",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1532",
+            "origin": "CJU",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1543",
+            "origin": "PUS",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1548",
+            "origin": "CJU",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE155",
+            "origin": "ICN",
+            "destination": "HFE"
+          },
+          {
+            "number": "KE1553",
+            "origin": "PUS",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1554",
+            "origin": "CJU",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1559",
+            "origin": "PUS",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE156",
+            "origin": "HFE",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE1560",
+            "origin": "CJU",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1569",
+            "origin": "TAE",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1572",
+            "origin": "CJU",
+            "destination": "TAE"
+          },
+          {
+            "number": "KE1575",
+            "origin": "TAE",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1576",
+            "origin": "CJU",
+            "destination": "TAE"
+          },
+          {
+            "number": "KE1585",
+            "origin": "HIN",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1586",
+            "origin": "CJU",
+            "destination": "HIN"
+          },
+          {
+            "number": "KE1594",
+            "origin": "CJU",
+            "destination": "USN"
+          },
+          {
+            "number": "KE1597",
+            "origin": "USN",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1607",
+            "origin": "KWJ",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1610",
+            "origin": "CJU",
+            "destination": "KWJ"
+          },
+          {
+            "number": "KE1611",
+            "origin": "KWJ",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1614",
+            "origin": "CJU",
+            "destination": "KWJ"
+          },
+          {
+            "number": "KE1615",
+            "origin": "KWJ",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1618",
+            "origin": "CJU",
+            "destination": "KWJ"
+          },
+          {
+            "number": "KE1619",
+            "origin": "KWJ",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1626",
+            "origin": "CJU",
+            "destination": "KWJ"
+          },
+          {
+            "number": "KE1635",
+            "origin": "RSU",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1636",
+            "origin": "CJU",
+            "destination": "RSU"
+          },
+          {
+            "number": "KE1701",
+            "origin": "CJJ",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1704",
+            "origin": "CJU",
+            "destination": "CJJ"
+          },
+          {
+            "number": "KE1709",
+            "origin": "CJJ",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1712",
+            "origin": "CJU",
+            "destination": "CJJ"
+          },
+          {
+            "number": "KE1716",
+            "origin": "CJU",
+            "destination": "CJJ"
+          },
+          {
+            "number": "KE1721",
+            "origin": "CJJ",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1801",
+            "origin": "GMP",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1807",
+            "origin": "GMP",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1810",
+            "origin": "PUS",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1814",
+            "origin": "PUS",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1815",
+            "origin": "GMP",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1816",
+            "origin": "PUS",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1819",
+            "origin": "GMP",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1820",
+            "origin": "PUS",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1822",
+            "origin": "PUS",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1823",
+            "origin": "GMP",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1826",
+            "origin": "PUS",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1827",
+            "origin": "GMP",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1828",
+            "origin": "PUS",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1831",
+            "origin": "GMP",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1835",
+            "origin": "GMP",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE1840",
+            "origin": "PUS",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1842",
+            "origin": "USN",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE1843",
+            "origin": "GMP",
+            "destination": "USN"
+          },
+          {
+            "number": "KE1849",
+            "origin": "GMP",
+            "destination": "USN"
+          },
+          {
+            "number": "KE1850",
+            "origin": "USN",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE2001",
+            "origin": "ICN",
+            "destination": "HKG"
+          },
+          {
+            "number": "KE2002",
+            "origin": "HKG",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2005",
+            "origin": "ICN",
+            "destination": "HKG"
+          },
+          {
+            "number": "KE2006",
+            "origin": "HKG",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2011",
+            "origin": "ICN",
+            "destination": "HKG"
+          },
+          {
+            "number": "KE2015",
+            "origin": "ICN",
+            "destination": "MFM"
+          },
+          {
+            "number": "KE2016",
+            "origin": "MFM",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2025",
+            "origin": "ICN",
+            "destination": "TPE"
+          },
+          {
+            "number": "KE2026",
+            "origin": "TPE",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2029",
+            "origin": "ICN",
+            "destination": "TPE"
+          },
+          {
+            "number": "KE2030",
+            "origin": "TPE",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2051",
+            "origin": "GMP",
+            "destination": "PEK"
+          },
+          {
+            "number": "KE2052",
+            "origin": "PEK",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE2057",
+            "origin": "GMP",
+            "destination": "SHA"
+          },
+          {
+            "number": "KE2058",
+            "origin": "SHA",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE2065",
+            "origin": "CJU",
+            "destination": "PEK"
+          },
+          {
+            "number": "KE2066",
+            "origin": "PEK",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE2071",
+            "origin": "PUS",
+            "destination": "PVG"
+          },
+          {
+            "number": "KE2072",
+            "origin": "PVG",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE2085",
+            "origin": "PUS",
+            "destination": "TPE"
+          },
+          {
+            "number": "KE2086",
+            "origin": "TPE",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE2101",
+            "origin": "GMP",
+            "destination": "HND"
+          },
+          {
+            "number": "KE2102",
+            "origin": "HND",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE2103",
+            "origin": "GMP",
+            "destination": "HND"
+          },
+          {
+            "number": "KE2104",
+            "origin": "HND",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE2105",
+            "origin": "GMP",
+            "destination": "HND"
+          },
+          {
+            "number": "KE2117",
+            "origin": "GMP",
+            "destination": "KIX"
+          },
+          {
+            "number": "KE2118",
+            "origin": "KIX",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE2119",
+            "origin": "GMP",
+            "destination": "KIX"
+          },
+          {
+            "number": "KE2120",
+            "origin": "KIX",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE2129",
+            "origin": "PUS",
+            "destination": "NRT"
+          },
+          {
+            "number": "KE2130",
+            "origin": "NRT",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE2131",
+            "origin": "PUS",
+            "destination": "NRT"
+          },
+          {
+            "number": "KE2132",
+            "origin": "NRT",
+            "destination": "PUS"
+          },
+          {
+            "number": "KE2147",
+            "origin": "ICN",
+            "destination": "OKA"
+          },
+          {
+            "number": "KE2148",
+            "origin": "OKA",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2171",
+            "origin": "ICN",
+            "destination": "UKB"
+          },
+          {
+            "number": "KE2172",
+            "origin": "UKB",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2173",
+            "origin": "ICN",
+            "destination": "UKB"
+          },
+          {
+            "number": "KE2174",
+            "origin": "UKB",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2189",
+            "origin": "ICN",
+            "destination": "KMQ"
+          },
+          {
+            "number": "KE2190",
+            "origin": "KMQ",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE415",
+            "origin": "ICN",
+            "destination": "GUM"
+          },
+          {
+            "number": "KE416",
+            "origin": "GUM",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE417",
+            "origin": "ICN",
+            "destination": "GUM"
+          },
+          {
+            "number": "KE427",
+            "origin": "ICN",
+            "destination": "KUL"
+          },
+          {
+            "number": "KE428",
+            "origin": "KUL",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE431",
+            "origin": "ICN",
+            "destination": "DPS"
+          },
+          {
+            "number": "KE432",
+            "origin": "DPS",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE433",
+            "origin": "ICN",
+            "destination": "DPS"
+          },
+          {
+            "number": "KE437",
+            "origin": "ICN",
+            "destination": "CGK"
+          },
+          {
+            "number": "KE442",
+            "origin": "HAN",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE447",
+            "origin": "ICN",
+            "destination": "HAN"
+          },
+          {
+            "number": "KE448",
+            "origin": "HAN",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE457",
+            "origin": "ICN",
+            "destination": "DAD"
+          },
+          {
+            "number": "KE458",
+            "origin": "DAD",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE459",
+            "origin": "ICN",
+            "destination": "DAD"
+          },
+          {
+            "number": "KE460",
+            "origin": "DAD",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE467",
+            "origin": "ICN",
+            "destination": "CXR"
+          },
+          {
+            "number": "KE471",
+            "origin": "ICN",
+            "destination": "SGN"
+          },
+          {
+            "number": "KE472",
+            "origin": "SGN",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE475",
+            "origin": "ICN",
+            "destination": "SGN"
+          },
+          {
+            "number": "KE476",
+            "origin": "SGN",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE479",
+            "origin": "ICN",
+            "destination": "SGN"
+          },
+          {
+            "number": "KE485",
+            "origin": "ICN",
+            "destination": "PQC"
+          },
+          {
+            "number": "KE601",
+            "origin": "ICN",
+            "destination": "CEB"
+          },
+          {
+            "number": "KE621",
+            "origin": "ICN",
+            "destination": "MNL"
+          },
+          {
+            "number": "KE622",
+            "origin": "MNL",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE623",
+            "origin": "ICN",
+            "destination": "MNL"
+          },
+          {
+            "number": "KE624",
+            "origin": "MNL",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE625",
+            "origin": "ICN",
+            "destination": "MNL"
+          },
+          {
+            "number": "KE643",
+            "origin": "ICN",
+            "destination": "SIN"
+          },
+          {
+            "number": "KE644",
+            "origin": "SIN",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE651",
+            "origin": "ICN",
+            "destination": "BKK"
+          },
+          {
+            "number": "KE652",
+            "origin": "BKK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE657",
+            "origin": "ICN",
+            "destination": "BKK"
+          },
+          {
+            "number": "KE658",
+            "origin": "BKK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE677",
+            "origin": "ICN",
+            "destination": "HKT"
+          },
+          {
+            "number": "KE678",
+            "origin": "HKT",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE689",
+            "origin": "ICN",
+            "destination": "KTI"
+          },
+          {
+            "number": "KE704",
+            "origin": "NRT",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE705",
+            "origin": "ICN",
+            "destination": "NRT"
+          },
+          {
+            "number": "KE707",
+            "origin": "ICN",
+            "destination": "NRT"
+          },
+          {
+            "number": "KE708",
+            "origin": "NRT",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE712",
+            "origin": "NRT",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE713",
+            "origin": "ICN",
+            "destination": "NRT"
+          },
+          {
+            "number": "KE721",
+            "origin": "ICN",
+            "destination": "KIX"
+          },
+          {
+            "number": "KE724",
+            "origin": "KIX",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE725",
+            "origin": "ICN",
+            "destination": "KIX"
+          },
+          {
+            "number": "KE726",
+            "origin": "KIX",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE737",
+            "origin": "ICN",
+            "destination": "KIX"
+          },
+          {
+            "number": "KE745",
+            "origin": "ICN",
+            "destination": "NGO"
+          },
+          {
+            "number": "KE746",
+            "origin": "NGO",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE749",
+            "origin": "ICN",
+            "destination": "NGO"
+          },
+          {
+            "number": "KE751",
+            "origin": "ICN",
+            "destination": "HND"
+          },
+          {
+            "number": "KE765",
+            "origin": "ICN",
+            "destination": "CTS"
+          },
+          {
+            "number": "KE766",
+            "origin": "CTS",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE779",
+            "origin": "ICN",
+            "destination": "FUK"
+          },
+          {
+            "number": "KE780",
+            "origin": "FUK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE781",
+            "origin": "ICN",
+            "destination": "FUK"
+          },
+          {
+            "number": "KE782",
+            "origin": "FUK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE787",
+            "origin": "ICN",
+            "destination": "FUK"
+          },
+          {
+            "number": "KE788",
+            "origin": "FUK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE805",
+            "origin": "ICN",
+            "destination": "TSN"
+          },
+          {
+            "number": "KE806",
+            "origin": "TSN",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE831",
+            "origin": "ICN",
+            "destination": "SHE"
+          },
+          {
+            "number": "KE832",
+            "origin": "SHE",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE833",
+            "origin": "ICN",
+            "destination": "SHE"
+          },
+          {
+            "number": "KE834",
+            "origin": "SHE",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE835",
+            "origin": "ICN",
+            "destination": "SZX"
+          },
+          {
+            "number": "KE836",
+            "origin": "SZX",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE841",
+            "origin": "ICN",
+            "destination": "TAO"
+          },
+          {
+            "number": "KE842",
+            "origin": "TAO",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE843",
+            "origin": "ICN",
+            "destination": "TAO"
+          },
+          {
+            "number": "KE844",
+            "origin": "TAO",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE851",
+            "origin": "ICN",
+            "destination": "PEK"
+          },
+          {
+            "number": "KE852",
+            "origin": "PEK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE863",
+            "origin": "ICN",
+            "destination": "PEK"
+          },
+          {
+            "number": "KE867",
+            "origin": "ICN",
+            "destination": "CAN"
+          },
+          {
+            "number": "KE868",
+            "origin": "CAN",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE873",
+            "origin": "ICN",
+            "destination": "DLC"
+          },
+          {
+            "number": "KE874",
+            "origin": "DLC",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE881",
+            "origin": "ICN",
+            "destination": "PVG"
+          },
+          {
+            "number": "KE882",
+            "origin": "PVG",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE887",
+            "origin": "ICN",
+            "destination": "PVG"
+          },
+          {
+            "number": "KE888",
+            "origin": "PVG",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE891",
+            "origin": "ICN",
+            "destination": "PVG"
+          },
+          {
+            "number": "KE907",
+            "origin": "ICN",
+            "destination": "LHR"
+          },
+          {
+            "number": "KE908",
+            "origin": "LHR",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE955",
+            "origin": "ICN",
+            "destination": "IST"
+          },
+          {
+            "number": "KE956",
+            "origin": "IST",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-03-28-2027-10-29",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-03-28",
+        "validThrough": "2027-10-29",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE101",
+            "origin": "ICN",
+            "destination": "NKG"
+          },
+          {
+            "number": "KE102",
+            "origin": "NKG",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE1107",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1162",
+            "origin": "CJU",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE159",
+            "origin": "ICN",
+            "destination": "WUH"
+          },
+          {
+            "number": "KE160",
+            "origin": "WUH",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE161",
+            "origin": "ICN",
+            "destination": "KMG"
+          },
+          {
+            "number": "KE162",
+            "origin": "KMG",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2125",
+            "origin": "CJU",
+            "destination": "NRT"
+          },
+          {
+            "number": "KE2126",
+            "origin": "NRT",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE2185",
+            "origin": "ICN",
+            "destination": "OKJ"
+          },
+          {
+            "number": "KE2186",
+            "origin": "OKJ",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2193",
+            "origin": "ICN",
+            "destination": "AOJ"
+          },
+          {
+            "number": "KE2194",
+            "origin": "AOJ",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE855",
+            "origin": "ICN",
+            "destination": "PEK"
+          },
+          {
+            "number": "KE856",
+            "origin": "PEK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE913",
+            "origin": "ICN",
+            "destination": "MAD"
+          },
+          {
+            "number": "KE927",
+            "origin": "ICN",
+            "destination": "MXP"
+          },
+          {
+            "number": "KE928",
+            "origin": "MXP",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE937",
+            "origin": "ICN",
+            "destination": "VIE"
+          },
+          {
+            "number": "KE938",
+            "origin": "VIE",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE945",
+            "origin": "ICN",
+            "destination": "FRA"
+          },
+          {
+            "number": "KE946",
+            "origin": "FRA",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-03-28-2027-08-31",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-03-28",
+        "validThrough": "2027-08-31",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE035",
+            "origin": "ICN",
+            "destination": "ATL"
+          },
+          {
+            "number": "KE037",
+            "origin": "ICN",
+            "destination": "ORD"
+          },
+          {
+            "number": "KE081",
+            "origin": "ICN",
+            "destination": "JFK"
+          },
+          {
+            "number": "KE082",
+            "origin": "JFK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE091",
+            "origin": "ICN",
+            "destination": "BOS"
+          },
+          {
+            "number": "KE093",
+            "origin": "ICN",
+            "destination": "IAD"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-03-28-2027-10-23",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-03-28",
+        "validThrough": "2027-10-23",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE703",
+            "origin": "ICN",
+            "destination": "NRT"
+          },
+          {
+            "number": "KE711",
+            "origin": "ICN",
+            "destination": "NRT"
+          },
+          {
+            "number": "KE714",
+            "origin": "NRT",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-03-28-2027-10-24",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-03-28",
+        "validThrough": "2027-10-24",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE921",
+            "origin": "ICN",
+            "destination": "LIS"
+          },
+          {
+            "number": "KE922",
+            "origin": "LIS",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-03-29-2027-10-30",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-03-29",
+        "validThrough": "2027-10-30",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE076",
+            "origin": "YVR",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE086",
+            "origin": "JFK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2012",
+            "origin": "HKG",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2106",
+            "origin": "HND",
+            "destination": "GMP"
+          },
+          {
+            "number": "KE407",
+            "origin": "ICN",
+            "destination": "BNE"
+          },
+          {
+            "number": "KE418",
+            "origin": "GUM",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE434",
+            "origin": "DPS",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE438",
+            "origin": "CGK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE468",
+            "origin": "CXR",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE480",
+            "origin": "SGN",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE486",
+            "origin": "PQC",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE602",
+            "origin": "CEB",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE626",
+            "origin": "MNL",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE645",
+            "origin": "ICN",
+            "destination": "SIN"
+          },
+          {
+            "number": "KE646",
+            "origin": "SIN",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE659",
+            "origin": "ICN",
+            "destination": "BKK"
+          },
+          {
+            "number": "KE690",
+            "origin": "KTI",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE722",
+            "origin": "KIX",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE738",
+            "origin": "KIX",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE752",
+            "origin": "HND",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE864",
+            "origin": "PEK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE892",
+            "origin": "PVG",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE902",
+            "origin": "CDG",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE931",
+            "origin": "ICN",
+            "destination": "FCO"
+          },
+          {
+            "number": "KE932",
+            "origin": "FCO",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE969",
+            "origin": "ICN",
+            "destination": "PRG"
+          },
+          {
+            "number": "KE970",
+            "origin": "PRG",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-03-29-2027-10-29",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-03-29",
+        "validThrough": "2027-10-29",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE107",
+            "origin": "ICN",
+            "destination": "HGH"
+          },
+          {
+            "number": "KE108",
+            "origin": "HGH",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-03-29-2027-10-31",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-03-29",
+        "validThrough": "2027-10-31",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE660",
+            "origin": "BKK",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE750",
+            "origin": "NGO",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-03-29-2027-10-18",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-03-29",
+        "validThrough": "2027-10-18",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE711",
+            "origin": "ICN",
+            "destination": "NRT"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-03-29-2027-10-23",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-03-29",
+        "validThrough": "2027-10-23",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE706",
+            "origin": "NRT",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-03-30-2027-10-30",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-03-30",
+        "validThrough": "2027-10-30",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE1705",
+            "origin": "CJJ",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1706",
+            "origin": "CJU",
+            "destination": "CJJ"
+          },
+          {
+            "number": "KE2191",
+            "origin": "ICN",
+            "destination": "NGS"
+          },
+          {
+            "number": "KE2192",
+            "origin": "NGS",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE2197",
+            "origin": "ICN",
+            "destination": "KIJ"
+          },
+          {
+            "number": "KE2198",
+            "origin": "KIJ",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE408",
+            "origin": "BNE",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-03-30-2027-10-28",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-03-30",
+        "validThrough": "2027-10-28",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE1187",
+            "origin": "GMP",
+            "destination": "CJU"
+          },
+          {
+            "number": "KE1196",
+            "origin": "CJU",
+            "destination": "GMP"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-03-31-2027-10-29",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-03-31",
+        "validThrough": "2027-10-29",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE921",
+            "origin": "ICN",
+            "destination": "LIS"
+          },
+          {
+            "number": "KE922",
+            "origin": "LIS",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-04-01-2027-10-30",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-04-01",
+        "validThrough": "2027-10-30",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE2073",
+            "origin": "PUS",
+            "destination": "PVG"
+          },
+          {
+            "number": "KE2074",
+            "origin": "PVG",
+            "destination": "PUS"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-04-01-2027-07-01",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-04-01",
+        "validThrough": "2027-07-01",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE048",
+            "origin": "SEA",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-04-03-2027-10-01",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-04-03",
+        "validThrough": "2027-10-01",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE403",
+            "origin": "ICN",
+            "destination": "SYD"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-04-04-2027-10-02",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-04-04",
+        "validThrough": "2027-10-02",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE404",
+            "origin": "SYD",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-04-25-2027-10-29",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-04-25",
+        "validThrough": "2027-10-29",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE875",
+            "origin": "ICN",
+            "destination": "DLC"
+          },
+          {
+            "number": "KE876",
+            "origin": "DLC",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-04-25-2027-10-30",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-04-25",
+        "validThrough": "2027-10-30",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE769",
+            "origin": "ICN",
+            "destination": "CTS"
+          },
+          {
+            "number": "KE770",
+            "origin": "CTS",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-04-26-2027-08-15",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-04-26",
+        "validThrough": "2027-08-15",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE051",
+            "origin": "ICN",
+            "destination": "HNL"
+          },
+          {
+            "number": "KE052",
+            "origin": "HNL",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-05-03-2027-10-30",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-05-03",
+        "validThrough": "2027-10-30",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE803",
+            "origin": "ICN",
+            "destination": "TSN"
+          },
+          {
+            "number": "KE804",
+            "origin": "TSN",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-05-22-2027-10-30",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-05-22",
+        "validThrough": "2027-10-30",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE925",
+            "origin": "ICN",
+            "destination": "AMS"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-05-31-2027-10-03",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-05-31",
+        "validThrough": "2027-10-03",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE2043",
+            "origin": "ICN",
+            "destination": "UBN"
+          },
+          {
+            "number": "KE2044",
+            "origin": "UBN",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-06-01-2027-08-31",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-06-01",
+        "validThrough": "2027-08-31",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE032",
+            "origin": "DFW",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE036",
+            "origin": "ATL",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE038",
+            "origin": "ORD",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE041",
+            "origin": "ICN",
+            "destination": "SEA"
+          },
+          {
+            "number": "KE042",
+            "origin": "SEA",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE072",
+            "origin": "YVR",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE075",
+            "origin": "ICN",
+            "destination": "YVR"
+          },
+          {
+            "number": "KE078",
+            "origin": "YYZ",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE094",
+            "origin": "IAD",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE695",
+            "origin": "ICN",
+            "destination": "KTM"
+          },
+          {
+            "number": "KE901",
+            "origin": "ICN",
+            "destination": "CDG"
+          },
+          {
+            "number": "KE914",
+            "origin": "MAD",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-06-01-2027-10-29",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-06-01",
+        "validThrough": "2027-10-29",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE006",
+            "origin": "LAS",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-06-01-2027-10-26",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-06-01",
+        "validThrough": "2027-10-26",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE491",
+            "origin": "ICN",
+            "destination": "RGN"
+          },
+          {
+            "number": "KE492",
+            "origin": "RGN",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-06-01-2027-10-30",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-06-01",
+        "validThrough": "2027-10-30",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE441",
+            "origin": "ICN",
+            "destination": "HAN"
+          },
+          {
+            "number": "KE696",
+            "origin": "KTM",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-06-01-2027-09-09",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-06-01",
+        "validThrough": "2027-09-09",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE054",
+            "origin": "HNL",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-06-03-2027-10-29",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-06-03",
+        "validThrough": "2027-10-29",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE497",
+            "origin": "ICN",
+            "destination": "DEL"
+          },
+          {
+            "number": "KE498",
+            "origin": "DEL",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-06-06-2027-09-26",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-06-06",
+        "validThrough": "2027-09-26",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE2045",
+            "origin": "ICN",
+            "destination": "UBN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-06-07-2027-09-27",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-06-07",
+        "validThrough": "2027-09-27",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE2046",
+            "origin": "UBN",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-06-28-2027-09-24",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-06-28",
+        "validThrough": "2027-09-24",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE411",
+            "origin": "ICN",
+            "destination": "AKL"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-07-01-2027-08-31",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-07-01",
+        "validThrough": "2027-08-31",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE005",
+            "origin": "ICN",
+            "destination": "LAS"
+          },
+          {
+            "number": "KE011",
+            "origin": "ICN",
+            "destination": "LAX"
+          },
+          {
+            "number": "KE017",
+            "origin": "ICN",
+            "destination": "LAX"
+          },
+          {
+            "number": "KE018",
+            "origin": "LAX",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE023",
+            "origin": "ICN",
+            "destination": "SFO"
+          },
+          {
+            "number": "KE024",
+            "origin": "SFO",
+            "destination": "ICN"
+          },
+          {
+            "number": "KE031",
+            "origin": "ICN",
+            "destination": "DFW"
+          },
+          {
+            "number": "KE047",
+            "origin": "ICN",
+            "destination": "SEA"
+          },
+          {
+            "number": "KE071",
+            "origin": "ICN",
+            "destination": "YVR"
+          },
+          {
+            "number": "KE963",
+            "origin": "ICN",
+            "destination": "BUD"
+          },
+          {
+            "number": "KE964",
+            "origin": "BUD",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-07-01-2027-10-29",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-07-01",
+        "validThrough": "2027-10-29",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE012",
+            "origin": "LAX",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-07-01-2027-10-30",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-07-01",
+        "validThrough": "2027-10-30",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE926",
+            "origin": "AMS",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-07-01-2027-07-01",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-07-01",
+        "validThrough": "2027-07-01",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE723",
+            "origin": "ICN",
+            "destination": "KIX"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-07-01-2027-09-09",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-07-01",
+        "validThrough": "2027-09-09",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE053",
+            "origin": "ICN",
+            "destination": "HNL"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-07-01-2027-07-08",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-07-01",
+        "validThrough": "2027-07-08",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE412",
+            "origin": "AKL",
+            "destination": "ICN"
+          }
+        ]
+      },
+      {
+        "id": "ke-published-하계-2027-07-02-2027-09-01",
+        "title": "대한항공 공식 하계 조회분 · 시즌 전체 아님",
+        "validFrom": "2027-07-02",
+        "validThrough": "2027-09-01",
+        "updatedAt": "2026-10-28",
+        "sourceURL": "https://www.koreanair.com/flight-status?hl=ko",
+        "flights": [
+          {
+            "number": "KE048",
+            "origin": "SEA",
+            "destination": "ICN"
+          }
+        ]
+      }
+    ]
+  },
+  "scheduleURL": "https://keradar-parallel.gentlevale3.chatgpt.site/api/schedules"
 }

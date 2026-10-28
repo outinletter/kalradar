@@ -52,3 +52,14 @@ Shared/radar.json을 기준으로 제공자 주소, 호출부호 필터, 조회 
 
 
 1.4(5): 실행·앱 복귀 시 자동 조회, 모호한 준비 안내·지도 위 큰 박스 제거. UTC 관측 시각, 120초 초과 위치 경과 표시, 전체 항공기 보기 및 항공편 요약 공유/복사 추가. 웹 실행 직후 30대 자동 표시 검증, 웹 커밋 64f88ade8755f9cab8416030e8f851dc2953829e 푸시·배포, iPhone 재설치 완료. 반복·백그라운드 네트워크 조회는 하지 않습니다.
+
+
+## GitHub Pages 웹 배포
+
+웹 주소: https://outinletter.github.io/kalradar/
+
+저장소 Settings → Pages → Build and deployment의 Source를 **GitHub Actions**로 설정합니다. `main`의 `Web/` 소스가 변경되면 `.github/workflows/pages.yml`이 화면을 자동 배포합니다. 최초 설정 후 Actions의 "Deploy KAL Radar web to GitHub Pages"를 실행할 수 있습니다.
+
+화면은 GitHub Pages에서 제공하고 항공 위치·등록 경로·새 스케줄 조회는 기존 공개 서버(https://keradar-parallel.gentlevale3.chatgpt.site)를 사용합니다. Pages는 정적 호스팅이므로 서버 API는 별도로 유지됩니다. 저장 스케줄과 오프라인 화면은 기존과 같이 지원합니다.
+
+로컬 정적 빌드: `node Web/scripts/build-pages.mjs`. 세부 사항은 `Web/README.md`를 참고하세요.
